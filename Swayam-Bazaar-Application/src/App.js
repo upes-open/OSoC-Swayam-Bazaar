@@ -8,6 +8,7 @@ function App() {
   return (
     <BrowserRouter>
       <Routes>
+      <Route path='/' element={<Feedback/>}></Route>
         <Route path='/feedback' element={<Feedback/>}></Route>
         <Route path='/feed' element={<Feed/>}></Route>
       </Routes>

@@ -1,29 +1,29 @@
 import { useFormik } from "formik";
 import { Link } from "react-router-dom";
-import axios from 'axios'
+import axios from 'axios';
 // import FeedbackModel from "../../models/Schema";
 export default function Feedback() {
-    const formik=useFormik({
-        initialValues: {
-          ordernumber: "",
-          rating:"",
-          productfeedback:"",
-          deliveryfeedback:""
-        },
-        onSubmit
-      })
+  const formik = useFormik({
+    initialValues: {
+      ordernumber: "",
+      rating: "",
+      productfeedback: "",
+      deliveryfeedback: ""
+    },
+    onSubmit
+  })
 
 
-      const port = process.env.REACT_APP_API_PORT || 3001;
-      async function onSubmit(values){
-        // const directory = process.env.SITE_URL || "localhost:3001"
-       axios.post(`http://localhost:${port}/feedback`,values)
-       .then(result => console.log(result))
-       .catch(err => console.log(err))
-        // console.log(values)
-      }
-    return (
-        <div>
+  const port = process.env.REACT_APP_API_PORT || 3001;
+  async function onSubmit(values) {
+    // const directory = process.env.SITE_URL || "localhost:3001"
+    axios.post(`http://localhost:${port}/feedback`, values)
+      .then(result => console.log(result))
+      .catch(err => console.log(err))
+    // console.log(values)
+  }
+  return (
+    <div>
       <Link to="/feed"> <button className="px-4 py-2 bg-blue-500 text-white rounded-lg mb-4 mt-3 ml-3">
         Check All Feedbacks
       </button></Link>
@@ -110,5 +110,5 @@ export default function Feedback() {
         </form>
       </div>
     </div>
-    )
+  )
 }
