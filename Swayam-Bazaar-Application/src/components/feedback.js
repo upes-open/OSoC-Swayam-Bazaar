@@ -1,6 +1,7 @@
 import { useFormik } from "formik";
 import { Link } from "react-router-dom";
 import axios from 'axios';
+import '../css/feedback.css';
 // import FeedbackModel from "../../models/Schema";
 export default function Feedback() {
   const formik = useFormik({
@@ -24,11 +25,11 @@ export default function Feedback() {
   }
   return (
     <div>
-      <Link to="/feed"> <button className="px-4 py-2 bg-blue-500 text-white rounded-lg mb-4 mt-3 ml-3">
+      <Link to="/feed"> <button className="px-4 py-2 bg-red-800 text-white rounded-lg mb-4 mt-3 ml-3">
         Check All Feedbacks
       </button></Link>
 
-      <div className="max-w-md mx-auto">
+      <div className="max-w-md mx-auto mb-3 pl-70" id="form">
         <h2 className="text-2xl font-semibold mb-4">
           Product and Delivery Feedback
         </h2>
@@ -102,7 +103,7 @@ export default function Feedback() {
           <div className="flex justify-end">
             <button
               type="submit"
-              className="px-4 py-2 bg-blue-500 text-white rounded-lg"
+              className="px-4 py-2 bg-red-800 text-white rounded-lg"
             >
               Submit
             </button>

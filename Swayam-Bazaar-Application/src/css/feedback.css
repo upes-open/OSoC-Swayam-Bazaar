@@ -1,0 +1,25 @@
+body{
+    background-image: url(https://i.postimg.cc/XJjZkS4y/image.jpg);
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+#form{
+    background-color: white;
+    padding: 20px 20px;
+    border-radius: 10px;
+}
+h2{
+    text-align: center;
+    color: brown;
+    font-family: Georgia, 'Times New Roman', Times, serif;
+    font-style: italic;
+}
+label{
+    font-weight: bold;
+    color: black;
+    padding: 8px;
+}
+button:hover{
+    background-color: rgb(172, 172, 37);
+    color: black;
+}

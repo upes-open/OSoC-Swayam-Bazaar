@@ -2,6 +2,7 @@ import React, { useState } from 'react';
 import { useFormik } from "formik";
 import { Link } from 'react-router-dom';
 import axios from 'axios'
+import '../css/listShop.css';
 const Listshop = () => {
   const formik = useFormik({
     initialValues: {
@@ -34,7 +35,7 @@ const Listshop = () => {
   }
 
   return (
-    <div className="bg-gray-100 h-screen p-6 rounded-lg shadow-md">
+    <div className="bg-gray-100 h-screen p-6 rounded-lg shadow-md" id='con'>
       <h2 className="text-3xl font-bold mb-4">Shop Listing Form</h2>
       <form onSubmit={formik.handleSubmit}>
         <div className="mb-4">
@@ -113,7 +114,7 @@ const Listshop = () => {
           />
         </div>
 
-          <button type="submit" className="bg-blue-500 hover:bg-blue-600 text-white font-semibold py-2 px-4 rounded-lg">Submit</button>
+          <button type="submit" className="bg-red-800 hover:bg-blue-600 text-white font-semibold py-2 px-4 rounded-lg">Submit</button>
       </form>
     </div>
   );
