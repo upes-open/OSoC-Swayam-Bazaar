@@ -1,8 +1,9 @@
-const express = require('express');
-const mongoose = require('mongoose');
-const cors = require('cors');
-const FeedbackModel = require('../src/models/Schema');
-require('dotenv').config({ path: '../.env.local' });
+const express = require("express");
+const mongoose = require("mongoose");
+const cors = require("cors");
+const FeedbackModel = require("../src/models/Schema");
+const ShopModel=require("../src/models/ShopListing");
+require("dotenv").config({ path: "../.env.local" });
 
 const app = express();
 app.use(express.json());
@@ -10,8 +11,8 @@ app.use(cors());
 
 const port = process.env.REACT_APP_API_PORT || 3001;
 
-const db = process.env.REACT_APP_MONGO_URI;
-
+const db =process.env.REACT_APP_MONGO_URI;
+// console.log(db)
 mongoose
   .connect(db, {
     useNewUrlParser: true,
@@ -21,13 +22,16 @@ mongoose
   .then(() => {
     console.log("DB connected successfully");
   });
-app.post('/feedback', (req, res) => {
+
+
+
+app.post("/feedback", (req, res) => {
   FeedbackModel.create(req.body)
-    .then(feedbacks => res.json(feedbacks))
-    .catch(err => res.json(err));
+    .then((feedbacks) => res.json(feedbacks))
+    .catch((err) => res.json(err));
 });
 
-app.get('/feed', (req, res) => {
+app.get("/feed", (req, res) => {
   FeedbackModel.find()
     .then((data) => {
       res.status(200).send(data);
@@ -37,6 +41,25 @@ app.get('/feed', (req, res) => {
       res.status(500).send(err);
     });
 });
+
+
+app.post("/listshop",(req,res) => {
+  console.log(req.body)
+  ShopModel.create(req.body)
+   .then((shoplists) => res.json(shoplists))
+   .catch((err) => res.json(err));
+})
+
+app.get("/displayshop",(req,res) => {
+  ShopModel.find()
+  .then((data) => {
+    res.status(200).send(data);
+  })
+  .catch((err) => {
+    res.status(500).send(err);
+  })
+})
+
 
 const server = app.listen(port, () => {
   console.log(`Server is up listening on port: ${port}`);
