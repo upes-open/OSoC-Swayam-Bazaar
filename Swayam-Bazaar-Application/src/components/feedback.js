@@ -24,18 +24,18 @@ export default function Feedback() {
     // console.log(values)
   }
   return (
-    <div>
+    <div id="body">
       <Link to="/feed"> <button className="px-4 py-2 bg-red-800 text-white rounded-lg mb-4 mt-3 ml-3">
         Check All Feedbacks
       </button></Link>
 
       <div className="max-w-md mx-auto mb-3 pl-70" id="form">
-        <h2 className="text-2xl font-semibold mb-4">
+        <h2 className="text-2xl font-semibold mb-4" id="feedback-h2">
           Product and Delivery Feedback
         </h2>
-        <form onSubmit={formik.handleSubmit}>
+        <form onSubmit={formik.handleSubmit} id="feedback-form">
           <div className="mb-4">
-            <label htmlFor="order-number" className="block mb-1 text-gray-700">
+            <label htmlFor="order-number" className="block mb-1 text-slate-950">
               Order Number
             </label>
             <input
@@ -49,7 +49,7 @@ export default function Feedback() {
             />
           </div>
           <div className="mb-4">
-            <label htmlFor="rating" className="block mb-1 text-gray-700">
+            <label htmlFor="rating" className="block mb-1 text-slate-950">
               Rating
             </label>
             <select
@@ -69,7 +69,7 @@ export default function Feedback() {
           <div className="mb-4">
             <label
               htmlFor="productfeedback"
-              className="block mb-1 text-gray-700"
+              className="block mb-1 text-slate-950"
             >
               Product Feedback
             </label>
@@ -86,7 +86,7 @@ export default function Feedback() {
           <div className="mb-4">
             <label
               htmlFor="deliveryfeedback"
-              className="block mb-1 text-gray-700"
+              className="block mb-1 text-slate-950"
             >
               Delivery Feedback
             </label>
