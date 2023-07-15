@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import { useFormik } from "formik";
-import { Link } from 'react-router-dom';
 import axios from 'axios'
+import '../css/listShop.css';
 const Listshop = () => {
   const formik = useFormik({
     initialValues: {
@@ -34,11 +34,11 @@ const Listshop = () => {
   }
 
   return (
-    <div className="bg-gray-100 h-screen p-6 rounded-lg shadow-md">
-      <h2 className="text-3xl font-bold mb-4">Shop Listing Form</h2>
-      <form onSubmit={formik.handleSubmit}>
+    <div className="bg-gray-100 h-screen p-6 rounded-lg shadow-md" id='listshop-body'>
+      <h2 className="text-3xl font-bold mb-4" id='listshop-h2'>Shop Listing Form</h2>
+      <form onSubmit={formik.handleSubmit} id='con'>
         <div className="mb-4">
-          <label htmlFor="shopName" className="text-lg font-semibold">
+          <label htmlFor="shopName" className="text-lg font-semibold ">
             Shop Name:
           </label>
           <input
@@ -69,7 +69,7 @@ const Listshop = () => {
 
         <div className="mb-4 md:flex">
           <div className="md:w-1/2 md:mr-2">
-            <label htmlFor="address" className="text-lg font-semibold">
+            <label htmlFor="address" className="text-lg font-semibold ">
               Address:
             </label>
             <input
@@ -107,13 +107,13 @@ const Listshop = () => {
             id="shopimage"
             name="shopimage"
             accept="image/*"
-            className="border border-gray-300 rounded-lg py-2 w-full"
+            className="border border-gray-300 rounded-lg py-2 w-full text-slate-200"
             required
             onChange={convertToBase64}
           />
         </div>
 
-          <button type="submit" className="bg-blue-500 hover:bg-blue-600 text-white font-semibold py-2 px-4 rounded-lg">Submit</button>
+          <button type="submit" className="bg-red-800 hover:bg-blue-600 text-white font-semibold py-2 px-4 rounded-lg">Submit</button>
       </form>
     </div>
   );

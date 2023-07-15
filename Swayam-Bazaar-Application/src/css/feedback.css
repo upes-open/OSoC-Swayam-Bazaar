@@ -1,0 +1,37 @@
+#body{
+    background-image: url(https://i.postimg.cc/jdrDdMH3/pngtree-blue-abstract-background-business-image-564246.jpg);
+    background-repeat: no-repeat;
+    background-size: cover;
+    height: 800px;
+}
+#feedback-form{
+    height: 600px;
+    width: 430px;
+    background-color: rgba(255,255,255,0.07);
+    position: absolute;
+    transform: translate(-50%,-50%);
+    top: 50%;
+    left: 50%;
+    border-radius: 10px;
+    backdrop-filter: blur(10px);
+    border: 2px solid rgba(255,255,255,0.1);
+    box-shadow: 0 0 40px rgba(8,7,16,0.6);
+    padding: 50px 35px;
+    margin-top: 150px;
+}
+#feedback-h2{
+    text-align: center;
+    color: black;
+    font-family: Georgia, 'Times New Roman', Times, serif;
+    font-style: italic;
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+}
+label{
+    font-weight: bold;
+    color: black;
+    padding: 8px;
+}
+button:hover{
+    background-color: rgb(172, 172, 37);
+    color: black;
+}
