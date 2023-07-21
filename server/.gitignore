@@ -1,0 +1,4 @@
+.env
+#PORT=<portno>
+#MONGO_URI=mongodb+srv://<collection>:<password>@cluster0.xcftllf.mongodb.net/?retryWrites=true&w=majority
+#SECRET=<secretforjwt
