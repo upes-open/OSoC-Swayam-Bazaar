@@ -2,17 +2,12 @@
 require('dotenv').config()
 const express = require("express");
 const mongoose = require("mongoose");
-const cors = require("cors");
 const Feedback = require("./routes/Feedback");
 const Shopkeeper = require("./routes/Shopkeeper");
 const ShopListing = require("./routes/ShopListing");
 const user = require("./routes/User");
-
-
-
 const app = express();
 app.use(express.json());
-app.use(cors());
 
 app.use((req, res, next) => {
   console.log(req.path, req.method)
@@ -31,7 +26,7 @@ mongoose.connect(process.env.MONGO_URI)
 
     // listen to port
     app.listen(process.env.PORT, () => {
-      console.log('listening for requests on port', process.env.PORT||6000)
+      console.log('listening for requests on port', process.env.PORT||5000)
     })
   })
   .catch((err) => {
