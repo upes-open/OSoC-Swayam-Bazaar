@@ -1,4 +1,5 @@
 import { useState } from "react"
+import '../css/loginShopkeeper.css';
 
 const Loginshopkeeper = () => {
   const [email, setEmail] = useState('')
@@ -29,24 +30,28 @@ const Loginshopkeeper = () => {
   }
 
   return (
-    <div>
-      <form className="login" onSubmit={handleSubmit}>
-        <h3>Log In Shopkeeper</h3>
+    <div id="box2">
+      <br />
+      <form id="shopkeeperform" className="loginShopkeeper" onSubmit={handleSubmit}>
+        <h3 id="userh">Log In <span style={{color:'green'}}>Shopkeeper</span></h3>
 
-        <label>Email address:</label>
+        <label id="userl1">Email address:</label>
         <input
           type="email"
           onChange={(e) => setEmail(e.target.value)}
           value={email}
+          id="inputuser1"
         />
-        <label>Password:</label>
+        <br />
+        <label id="userl2">Password:</label>
         <input
           type="password"
           onChange={(e) => setPassword(e.target.value)}
           value={password}
+          id="inputuser2"
         />
 
-        <button >Log in</button>
+        <button id="userb2" >Log in</button>
 
       </form>
     </div>

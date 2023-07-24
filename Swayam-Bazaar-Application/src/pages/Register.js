@@ -5,8 +5,10 @@ import './landr.css'//temporary css
 
 const Register = () => {
   return (
-    <div><Registeruser/>
-    <Registershopkeeper/></div>
+    <div style={{display:'flex'}}>
+      <Registeruser/>
+    {/* <Registershopkeeper/> */}
+    </div>
   )
 }
 

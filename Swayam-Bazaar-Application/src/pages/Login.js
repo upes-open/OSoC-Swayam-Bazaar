@@ -5,8 +5,10 @@ import './landr.css'//temporary css
 
 const Login = () => {
   return (
-    <div><Loginuser/>
-        <Loginshopkeeper/></div>
+    <div id='container' style={{display:'flex'}}>
+      <Loginuser/>
+        {/* <Loginshopkeeper/> */}
+    </div>
   )
 }
 

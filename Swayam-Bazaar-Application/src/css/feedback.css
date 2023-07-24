@@ -4,7 +4,7 @@
     background-size: cover;
     height: 800px;
 }
-#feedback-form{
+.feedback-form{
     height: 600px;
     width: 430px;
     background-color: rgba(255,255,255,0.07);

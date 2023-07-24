@@ -1,4 +1,5 @@
 import { useState } from "react"
+import '../css/registerShopkeeper.css';
 
 
 const Registershopkeeper = () => {
@@ -38,25 +39,33 @@ const Registershopkeeper = () => {
   }
 
   return (
-    <form className="signup" onSubmit={handleSubmit}>
-      <h3>Sign Up Shopkeeper</h3>
+    <div id="box4">
+      <br />
+    <form className="signup" id="signup2" onSubmit={handleSubmit} >
+      <h3 id="registeruserh">Sign Up Shopkeeper</h3>
 
-      <label>Email address:</label>
+      <label id="registerl1">Email address:</label>
+      <br />
       <input
         type="email"
         onChange={(e) => setEmail(e.target.value)}
         value={email}
+        id="registerinput1"
       />
-      <label>Password:</label>
+      <br />
+      <label id="registerl2">Password:</label>
+      <br />
       <input
         type="password"
         onChange={(e) => setPassword(e.target.value)}
         value={password}
+        id="registerinput2"
       />
-
-      <button >Sign up </button>
+      <br />
+      <button id="registerb">Sign up </button>
     
     </form>
+    </div>
   )
 }
 

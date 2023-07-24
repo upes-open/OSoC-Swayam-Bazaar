@@ -7,6 +7,8 @@ import Feedback from "./components/feedback";
 import Feed from "./components/allfeed";
 import ListShop from "./components/listShop";
 import Displayshop from "./components/displayShop";
+import RegisterShopkeeper from "./components/RegisterShopkeeper";
+import Loginshopkeeper from "./components/Loginshopkeeper";
 
 
 function App() {
@@ -25,6 +27,8 @@ function App() {
         <Route path='/feed' element={<Feed/>}></Route>
         <Route path='/listshop' element={<ListShop/>}></Route>
         <Route path='/displayshop' element={<Displayshop/>}></Route>
+        <Route path='/shopkeeper-register' element={<RegisterShopkeeper/>}></Route>
+        <Route path='/shopkeeper-login' element={<Loginshopkeeper/>}></Route>
 
       </Routes>
     </BrowserRouter>
