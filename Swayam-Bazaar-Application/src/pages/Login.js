@@ -1,6 +1,6 @@
 import React from 'react'
 import Loginuser from '../components/Loginuser'
-import Loginshopkeeper from '../components/Loginshopkeeper'
+// import Loginshopkeeper from '../components/Loginshopkeeper'
 import './landr.css'//temporary css
 
 const Login = () => {

@@ -11,7 +11,7 @@ const Registershopkeeper = () => {
     e.preventDefault()
 
     try {
-      const response = await fetch('/api/User/signup', {
+      const response = await fetch('/api/Shopkeeper/signup', {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify({ email, password })
