@@ -33,7 +33,7 @@ export default function Feedback() {
         <h2 className="text-2xl font-semibold mb-4" id="feedback-h2">
           Product and Delivery Feedback
         </h2>
-        <form onSubmit={formik.handleSubmit} id="feedback-form">
+        <form onSubmit={formik.handleSubmit} className="feedback-form">
           <div className="mb-4">
             <label htmlFor="order-number" className="block mb-1 text-slate-950">
               Order Number

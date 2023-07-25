@@ -1,4 +1,9 @@
+<<<<<<< HEAD
+import { useState } from "react"
+import '../css/loginUser.css';
+=======
 import React, { useState } from "react";
+>>>>>>> 5e6ed26b80b742ae28203e6d0bb34f2f0bfd516a
 
 const Loginuser = () => {
   const [email, setEmail] = useState("");
@@ -29,24 +34,34 @@ const Loginuser = () => {
   };
 
   return (
-    <div>
-      <form className="login" onSubmit={handleSubmit}>
-        <h3>Log In User</h3>
+    <div id="box1">
+      <form className="loginuser" id="userform" onSubmit={handleSubmit}>
+        <h3 id="userh">Log In <span style={{color:'green'}}>User</span></h3>
 
-        <label>Email address:</label>
+        <label id="userl1">Email address:</label>
         <input
           type="email"
           onChange={(e) => setEmail(e.target.value)}
           value={email}
+          id="inputuser1"
         />
-        <label>Password:</label>
+        <br />
+        <label id="userl2">Password:</label>
         <input
           type="password"
           onChange={(e) => setPassword(e.target.value)}
           value={password}
+          id="inputuser2"
         />
+<<<<<<< HEAD
+        <br />
+        <button id="userb">Log in</button>
+        <br />
+        <a id="logina" href="/shopkeeper-login">Log In as Shopkeeper</a>
+=======
 
         <button>Log in</button>
+>>>>>>> 5e6ed26b80b742ae28203e6d0bb34f2f0bfd516a
       </form>
     </div>
   );
