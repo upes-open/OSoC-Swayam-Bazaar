@@ -15,12 +15,14 @@ const Registeruser = () => {
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify({ email, password })
       })
+      
 
       if (response.ok) {
         const json = await response.json()
 
         // save the user to local storage
         localStorage.setItem('user', JSON.stringify(json))
+        console.log("User Registered")
 
         // Handle successful registration
         // You can redirect or perform any other action here
