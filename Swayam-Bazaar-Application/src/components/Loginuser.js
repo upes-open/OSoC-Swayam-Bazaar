@@ -1,9 +1,5 @@
-<<<<<<< HEAD
 import { useState } from "react"
 import '../css/loginUser.css';
-=======
-import React, { useState } from "react";
->>>>>>> 5e6ed26b80b742ae28203e6d0bb34f2f0bfd516a
 
 const Loginuser = () => {
   const [email, setEmail] = useState("");
@@ -53,15 +49,10 @@ const Loginuser = () => {
           value={password}
           id="inputuser2"
         />
-<<<<<<< HEAD
         <br />
         <button id="userb">Log in</button>
         <br />
         <a id="logina" href="/shopkeeper-login">Log In as Shopkeeper</a>
-=======
-
-        <button>Log in</button>
->>>>>>> 5e6ed26b80b742ae28203e6d0bb34f2f0bfd516a
       </form>
     </div>
   );
