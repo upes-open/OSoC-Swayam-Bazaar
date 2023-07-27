@@ -6,7 +6,9 @@ const createFeedback = async (req, res) => {  FeedbackModel.create(req.body)
     .catch((err) => res.json(err));
 };
 
-const getFeedback = async (req, res) => {FeedbackModel.find()
+const getFeedback = async (req, res) => {
+  
+  FeedbackModel.find()
     .then((data) => {
       res.status(200).send(data);
       console.log(data);

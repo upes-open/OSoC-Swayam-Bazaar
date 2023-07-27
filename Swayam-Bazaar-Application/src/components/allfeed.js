@@ -4,14 +4,15 @@
   export default function Feed() {
     const [feeds, setFeeds] = useState(null);
     // const { port } = require('../server/server');
-    const port = process.env.REACT_APP_API_PORT || 3001;
+    const port = process.env.REACT_APP_API_PORT || 5000;
     useEffect(() => {
       const fetchData = async () => {
         try {
-          const response = await axios.get(`http://localhost:${port}/feed`);
+          const response = await axios.get(`http://localhost:${port}/api/Feedback/feed`);
           setFeeds(response.data);
+          console.log(response.data);
         } catch (error) {
-          console.error("Error fetching data:", error);
+          console.error("Error fetching data:", error.message);
         }
       };
 

@@ -16,10 +16,10 @@ export default function Feedback() {
   })
 
 
-  const port = process.env.REACT_APP_API_PORT || 3001;
+  const port = process.env.REACT_APP_API_PORT || 5000;
   async function onSubmit(values) {
     // const directory = process.env.SITE_URL || "localhost:3001"
-    axios.post(`http://localhost:${port}/feedback`, values)
+    axios.post(`http://localhost:${port}/api/Feedback/feedback`, values)
       .then(result => console.log(result))
       .catch(err => console.log(err))
     // console.log(values)
