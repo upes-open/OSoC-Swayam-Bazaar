@@ -1,0 +1,50 @@
+body, h1, h2, p, ol, ul, li {
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    font-family: Arial, sans-serif;
+    line-height: 1.6;
+}
+
+h1, h2 {
+    margin-bottom: 10px;
+}
+
+/* header here */
+
+header h1 {
+    font-size: 38px;
+}
+
+/* main content area */
+div {
+    max-width: 800px;
+    margin: 20px auto;
+    padding: 20px;
+}
+
+/* return policy section */
+h2 {
+    font-size: 34px;
+    border-bottom: 1px solid #ccc;
+    padding-bottom: 10px;
+    margin-bottom: 20px;
+}
+
+p {
+    margin-bottom: 10px;
+}
+
+ol, ul {
+    margin-left: 20px;
+    margin-bottom: 20px;
+}
+
+li {
+    margin-bottom: 5px;
+}
+
+/* footer here */
+/* additional styles & customizations here */
