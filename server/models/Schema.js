@@ -7,6 +7,6 @@ const FeedbackSchema=new mongoose.Schema({
   deliveryfeedback:String  
 })
 
-const FeedbackModel=mongoose.model("feebacks",FeedbackSchema)
+const FeedbackModel=mongoose.model("feedbacks",FeedbackSchema)
 
 module.exports=FeedbackModel;

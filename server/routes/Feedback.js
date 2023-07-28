@@ -4,7 +4,7 @@ const {createFeedback,getFeedback} = require('../controller/feedbackcontroller')
 const requireAuthuser = require('../middleware/requireAuthuser')
 const router = express.Router()
 
-router.use(requireAuthuser)
+// router.use(requireAuthuser)
 
 // controller functions
 router.post("/feedback", createFeedback)
