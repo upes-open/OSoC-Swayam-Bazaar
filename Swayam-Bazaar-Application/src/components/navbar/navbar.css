@@ -1,0 +1,29 @@
+
+
+
+.nav-link.dark-mode.ps-3{
+    color:white !important;
+}
+
+.navbar-brand.dark-mode.ps-3{
+    color:white !important;
+}
+
+
+.navbar-brand{
+    font-family: 'Poppins', sans-serif;
+}
+  
+  .navbar {
+    /* Add common styles for both light and dark themes */
+    padding: 20px;
+
+  }
+  
+  .nav-link {
+    /* Add common styles for both light and dark themes */
+    text-transform: none;
+    font-family: 'Poppins', sans-serif;
+    font-size: 0.9rem;
+    color: black;
+  }

@@ -9,6 +9,7 @@ import ListShop from "./components/listShop";
 import Displayshop from "./components/displayShop";
 import RegisterShopkeeper from "./components/RegisterShopkeeper";
 import Loginshopkeeper from "./components/Loginshopkeeper";
+import Navbar from "./components/navbar/Navbar";
 
 
 function App() {
@@ -16,7 +17,7 @@ function App() {
   return (
     <BrowserRouter>
       <Routes>
-      <Route path='/' element={<Feedback/>}></Route>
+      <Route path='/' element={<Navbar/>}></Route>
 
        <Route path='/login' element={<Login/>}></Route>
 
