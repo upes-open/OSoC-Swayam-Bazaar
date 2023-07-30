@@ -1,11 +1,9 @@
 
-
-
-.nav-link.dark-mode.ps-3{
+.nav-link.dark-mode{
     color:white !important;
 }
 
-.navbar-brand.dark-mode.ps-3{
+.navbar-brand.dark-mode{
     color:white !important;
 }
 
@@ -15,15 +13,15 @@
 }
   
   .navbar {
-    /* Add common styles for both light and dark themes */
     padding: 20px;
 
   }
   
   .nav-link {
-    /* Add common styles for both light and dark themes */
     text-transform: none;
     font-family: 'Poppins', sans-serif;
     font-size: 0.9rem;
     color: black;
   }
+
+
