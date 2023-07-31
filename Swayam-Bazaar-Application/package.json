@@ -1,5 +1,5 @@
 {
-    "proxy": "http://127.0.0.1:6000/",
+    "proxy": "http://localhost:6000/",
     "name": "swayam-bazaar",
     "version": "0.1.0",
     "private": true,
