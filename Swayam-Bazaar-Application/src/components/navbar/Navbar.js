@@ -3,6 +3,7 @@ import { Link } from 'react-router-dom';
 import Switch from 'react-switch';
 import bg from './bg.jpg';
 import './navbar.css';
+import logo from "../images/Logo_.png"
 
 const Navbar = (props) => {
   const [theme, setTheme] = useState('light');
@@ -26,14 +27,18 @@ const Navbar = (props) => {
 
   return (
     <div>
-      <nav className={`-mt-3 navbar navbar-expand-lg navbar-${theme === 'dark' ? 'dark' : 'light'}`}>
-        <div className={`container-fluid`}>
-        
-          <Link className={`navbar-brand ${theme === 'dark' ? 'dark-mode' : ''} ps-3`} to="/">
-            Swayam Bazaar
-          </Link>
+      <nav className={`navbar navbar-expand-lg navbar-${theme === 'dark' ? 'dark' : 'light'} flex justify-center`} style={{ backgroundColor: theme === "dark" ? "#333" : "white" }}>
+
+        <div className="container-fluid">
+
+          <div className='ms-2'>
+            <Link exact to="/">
+              <img src={logo} alt="logo" style={{ width: "15%" }} />
+            </Link>
+          </div>
+
           <button
-            className="navbar-toggler"
+            className="navbar-toggler absolute top-3 right-3"
             type="button"
             data-bs-toggle="collapse"
             data-bs-target="#navbarNav"
@@ -43,47 +48,49 @@ const Navbar = (props) => {
           >
             <span className="navbar-toggler-icon"></span>
           </button>
-          <div className=" ms-5 navbar-collapse visible justify-content-start flex" id="navbarNav">
-          <div className="ms-0 me-auto">
-            <Switch
-              checked={theme === 'dark'}
-              onChange={() => toggleTheme(theme)}
-              onColor="#2C3245"
-              offColor="#E1E2E2"
-              onHandleColor="#fff"
-              handleDiameter={10}
-              uncheckedIcon="🔆"
-              checkedIcon="🌙"
-              height={25}
-              width={57}
-              className="theme-toggle-switch px-5"
-            />
-          </div>
-            <ul className="navbar-nav" style={{marginTop:"15px"}}>
-              <li className="nav-item ms-4">
+          <div className=" navbar-collapse visible mt-3 -ms-4" id="navbarNav">
+
+            <div className="navbar-nav w-full ms-11 flex justify-around" >
+              <div className="nav-item">
                 <Link className={`nav-link ${theme === 'dark' ? 'dark-mode' : ''}`} to="/">
                   Home
                 </Link>
-              </li>
-              <li className="nav-item ms-4">
+              
+              </div>
+              <div className="nav-item">
                 <Link className={`nav-link ${theme === 'dark' ? 'dark-mode' : ''}`} to="/about">
                   About
                 </Link>
-              </li>
-              <li className="nav-item ms-4">
+              </div>
+              <div className="nav-item">
                 <Link className={`nav-link ${theme === 'dark' ? 'dark-mode' : ''}`} to="/contact-us">
                   Contact Us
                 </Link>
-              </li>
-              <li className="nav-item ms-4">
+              </div>
+              <div className="mb-3">
                 <Link className={`nav-link ${theme === 'dark' ? 'dark-mode' : ''}`} to="/feedback">
                   Feedback
                 </Link>
-              </li>
-              
-            </ul>
+              </div>
+              <div className="switch -ms-12 pt-2 mb-4">
+                <Switch
+                  checked={theme === 'dark'}
+                  onChange={() => toggleTheme(theme)}
+                  onColor="#2C3245"
+                  offColor="#E1E2E2"
+                  onHandleColor="#fff"
+                  handleDiameter={10}
+                  uncheckedIcon="🔆"
+                  checkedIcon="🌙"
+                  height={25}
+                  width={57}
+                  className="theme-toggle-switch px-5"
+                />
+              </div>
+
+            </div>
           </div>
-          
+
         </div>
       </nav>
     </div>
