@@ -6,6 +6,7 @@ const Feedback = require("./routes/Feedback");
 const Shopkeeper = require("./routes/Shopkeeper");
 const ShopListing = require("./routes/ShopListing");
 const user = require("./routes/User");
+const contactUsRouter=require("./routes/contactUsRouter");
 const app = express();
 app.use(express.json());
 const cors = require('cors');
@@ -20,6 +21,7 @@ app.use("/api/Feedback", Feedback);
 app.use("/api/Shopkeeper", Shopkeeper);
 app.use("/api/Shoplisting", ShopListing);
 app.use("/api/User", user);
+app.use("/api/Contact",contactUsRouter);
 
 // connect to db
 mongoose.connect(process.env.MONGO_URI , {
