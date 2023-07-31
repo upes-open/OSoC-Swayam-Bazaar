@@ -11,6 +11,7 @@ import RegisterShopkeeper from "./components/RegisterShopkeeper";
 import Loginshopkeeper from "./components/Loginshopkeeper";
 import Navbar from "./components/navbar/Navbar";
 import ContactForm from "./components/Contact";
+import Footer from "./components/footer/footer";
 
 function App() {
   
@@ -29,7 +30,7 @@ function App() {
         <Route path='/shopkeeper-register' element={<RegisterShopkeeper/>}></Route>
         <Route path='/shopkeeper-login' element={<Loginshopkeeper/>}></Route>
         <Route path='/contact-us' element={<ContactForm/>}></Route>
-
+        <Route path='/footer' element={<Footer/>}></Route>
       </Routes>
     </BrowserRouter>
   )
