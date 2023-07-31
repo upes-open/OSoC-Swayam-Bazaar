@@ -4,6 +4,7 @@ import Switch from 'react-switch';
 import bg from './bg.jpg';
 import './navbar.css';
 import logo from "../images/Logo_.png"
+import Footer from '../footer/footer';
 
 const Navbar = (props) => {
   const [theme, setTheme] = useState('light');
@@ -93,6 +94,9 @@ const Navbar = (props) => {
 
         </div>
       </nav>
+      <div className='footer'>
+        <Footer/>
+      </div>
     </div>
   );
 };

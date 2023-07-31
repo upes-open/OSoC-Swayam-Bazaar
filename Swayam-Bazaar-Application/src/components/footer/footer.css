@@ -1,0 +1,72 @@
+footer{
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+}
+footer .col{
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    margin-bottom: 20px;
+    margin-left: 20px;
+}
+footer .logo{
+    margin-bottom: 20px;
+    height: 110px;
+    width: 110px;
+}
+footer #footerh{
+    font-size: 18px;
+    padding-bottom: 20px;
+    font-weight: bold;
+}
+footer p{
+    font-size: 13px;
+    margin: 0 0 8px 0;
+}
+footer a{
+    font-size: 13px;
+    color: #222;
+    text-decoration: none;
+    margin-bottom: 10px;
+}
+footer .follow{
+    margin-top: 20px;
+}
+
+footer  .icon{
+    cursor: pointer; 
+    display: flex;
+}
+footer .icon > * {
+    margin-right: 10px; 
+    color: #465b52;
+    cursor: pointer;
+  }
+  footer .icon > *:last-child {
+    margin-right: 0; 
+  }
+footer .install .row img{
+    border-radius: 6px;
+    height: 40px;
+    width: 120px;
+}
+footer .install img{
+    margin: 10px 0 15px 0;
+    border: 1px solid #088178;
+    padding: 0px;
+}
+footer .follow i:hover,
+footer a:hover{
+    color: #088178;
+}
+footer .copyright{
+    width: 100%;
+    text-align: center;
+}
+footer #about{
+    margin-top: 50px;
+}
+footer #col1{
+    margin-left: 30px;
+}
