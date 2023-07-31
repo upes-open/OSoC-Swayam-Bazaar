@@ -1,29 +1,53 @@
+@import url('https://fonts.googleapis.com/css2?family=Exo:ital,wght@0,400;0,500;0,600;1,500&family=New+Tegomin&display=swap');
 
-
-
-.nav-link.dark-mode.ps-3{
-    color:white !important;
+.nav-link.dark-mode {
+  color: white !important;
 }
 
-.navbar-brand.dark-mode.ps-3{
-    color:white !important;
+.navbar-brand.dark-mode {
+  color: white !important;
 }
 
 
-.navbar-brand{
-    font-family: 'Poppins', sans-serif;
+.navbar-brand {
+  font-family: 'Exo', sans-serif;
+  font-weight: 600;
 }
-  
-  .navbar {
-    /* Add common styles for both light and dark themes */
-    padding: 20px;
 
+.navbar {
+  padding: 0px;
+  margin: 0px;
+
+}
+
+.nav-link {
+  text-transform: none;
+  font-family: 'Exo', sans-serif;
+  font-weight: 500;
+  font-size: 1rem;
+  font-style: normal;
+  color: black;
+}
+
+/* .nav-item{
+  margin-top: 7px;
+} */
+
+/* Hide the lines when not in hamburger mode (screen width > 768px) */
+@media screen and (max-width: 991px) {
+  .nav-item {
+    border-bottom: 1px solid #ccc;
+    margin-top: 10px;
+    margin-bottom: 15px;
+    padding-bottom: 10px;
   }
-  
-  .nav-link {
-    /* Add common styles for both light and dark themes */
-    text-transform: none;
-    font-family: 'Poppins', sans-serif;
-    font-size: 0.9rem;
-    color: black;
+  .navbar-nav{
+    width: 80%;
   }
+
+  .switch{
+    position: absolute;
+    top: 3%;
+    left: 60%;
+  }
+}

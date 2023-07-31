@@ -11,7 +11,6 @@ import RegisterShopkeeper from "./components/RegisterShopkeeper";
 import Loginshopkeeper from "./components/Loginshopkeeper";
 import Navbar from "./components/navbar/Navbar";
 
-
 function App() {
   
   return (
@@ -22,8 +21,6 @@ function App() {
        <Route path='/login' element={<Login/>}></Route>
 
         <Route path='/register' element={<Register/>}></Route>
-   
-
         <Route path='/feedback' element={<Feedback/>}></Route>
         <Route path='/feed' element={<Feed/>}></Route>
         <Route path='/listshop' element={<ListShop/>}></Route>
