@@ -10,6 +10,7 @@ import Displayshop from "./components/displayShop";
 import RegisterShopkeeper from "./components/RegisterShopkeeper";
 import Loginshopkeeper from "./components/Loginshopkeeper";
 import Navbar from "./components/navbar/Navbar";
+import ContactForm from "./components/Contact";
 
 
 function App() {
@@ -30,7 +31,7 @@ function App() {
         <Route path='/displayshop' element={<Displayshop/>}></Route>
         <Route path='/shopkeeper-register' element={<RegisterShopkeeper/>}></Route>
         <Route path='/shopkeeper-login' element={<Loginshopkeeper/>}></Route>
-
+        <Route path='/contact-us' element={<ContactForm/>}></Route>
       </Routes>
     </BrowserRouter>
   )

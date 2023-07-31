@@ -6,8 +6,10 @@ const Feedback = require("./routes/Feedback");
 const Shopkeeper = require("./routes/Shopkeeper");
 const ShopListing = require("./routes/ShopListing");
 const user = require("./routes/User");
+const contactUsRouter=require("./routes/contactUsRouter");
 const app = express();
 app.use(express.json());
+app.use(express.urlencoded({extended:false}));
 const cors = require('cors');
 app.use(cors());
 
@@ -20,9 +22,10 @@ app.use("/api/Feedback", Feedback);
 app.use("/api/Shopkeeper", Shopkeeper);
 app.use("/api/Shoplisting", ShopListing);
 app.use("/api/User", user);
+app.use("/api/Contact",contactUsRouter);
 
 // connect to db
-mongoose.connect(process.env.MONGO_URI , {
+mongoose.connect(process.env.MONGO_URI, {
   useNewUrlParser: true,
   useUnifiedTopology: true,
 });
@@ -34,7 +37,7 @@ db.once('open', () => {
 
 
     // listen to port
-const port = process.env.PORT || 5000; // Choose the desired port for your server
+const port = process.env.PORT || 5000;// Choose the desired port for your server
 app.listen(port, () => {
   console.log(`Server is running on port ${port}`);
 });
