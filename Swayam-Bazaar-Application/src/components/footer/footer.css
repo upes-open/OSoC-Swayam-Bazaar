@@ -15,7 +15,7 @@ footer .logo{
     height: 110px;
     width: 110px;
 }
-footer #footerh{
+footer #footerh,#footerm{
     font-size: 18px;
     padding-bottom: 20px;
     font-weight: bold;
@@ -64,9 +64,28 @@ footer .copyright{
     width: 100%;
     text-align: center;
 }
-footer #about{
+footer #about,#install2{
     margin-top: 50px;
 }
 footer #col1{
     margin-left: 30px;
+}
+
+@media (min-width: 375px) and (max-width:612px) {
+    footer #about{
+        margin-top: 130px;
+    }
+    footer #follow{
+        margin-left: 5px;
+        margin-top: 50px;
+    }
+    footer #install2{
+        margin-left: 30px;
+        margin-top: 10px;
+    }
+}
+@media (min-width: 612px) and (max-width:800px){
+    footer #install2{
+        margin-top: 130px;
+    }
 }
