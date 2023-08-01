@@ -14,7 +14,7 @@ const Footer = () => {
         <p><strong>Address:</strong> -</p>
         <p><strong>Phone:</strong> +91 9076858490</p>
         <p><strong>Hours:</strong> 9:00 am-11:00 pm Mon-Sun</p>
-        <div className="follow">
+        <div className="follow" id="follow">
           <h4 id='footerh'>Follow us</h4>
           <div className="icon">
             <FaFacebook />
@@ -33,13 +33,13 @@ const Footer = () => {
         <a href="/contact-us">Contact us</a>
       </div>
       <div className="col" id='about'>
-        <h4 id='footerh'>My account</h4>
+        <h4 id='footerm'>My account</h4>
         <a href="#">Sign in</a>
         <a href="#">My wishlist</a>
         <a href="#">Track my order</a>
         <a href="#">Help</a>
       </div>
-      <div className="col install" id='about'>
+      <div className="col install" id='install2'>
         <h4 id='footerh'>Install app</h4>
         <p>From app store or google play</p>
         <div className="row">
