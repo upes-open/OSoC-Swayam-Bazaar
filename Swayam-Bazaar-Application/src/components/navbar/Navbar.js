@@ -8,10 +8,15 @@ import Footer from '../footer/footer';
 
 const Navbar = (props) => {
   const [theme, setTheme] = useState('light');
+  const [showChatbot, setShowChatbot] = useState(false);
 
   const toggleTheme = (theme) => {
     setTheme(theme === 'light' ? 'dark' : 'light');
     console.log(theme);
+  };
+
+  const toggleChatbot = () => {
+    setShowChatbot((prevShowChatbot) => !prevShowChatbot);
   };
 
   useEffect(() => {
@@ -94,6 +99,17 @@ const Navbar = (props) => {
 
         </div>
       </nav>
+      <div id="chatbot" onClick={toggleChatbot}>
+        <img style={{"borderRadius":"50%"}} src="https://i.postimg.cc/rsX9rJ7p/chatbot.jpg" alt="" />
+        </div>
+        {showChatbot && (
+          <iframe style={{marginLeft:"785px",marginTop:"-430px"}}
+            width="350"
+            height="430"
+            allow="microphone;"
+            src="https://console.dialogflow.com/api-client/demo/embedded/13534f69-0b84-4698-8077-a0bc8e10e546"
+          ></iframe>
+        )}
       <div className='footer'>
         <Footer/>
       </div>
