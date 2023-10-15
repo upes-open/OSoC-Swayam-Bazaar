@@ -4,5 +4,12 @@
     "@emotion/styled": "^11.11.0",
     "@mui/material": "^5.14.2",
     "react-switch": "^7.0.0"
+  },
+  "scripts": {
+    "dev": "nodemon server.js  --ignore client",
+    "start": "react-scripts start",
+    "build": "react-scripts build",
+    "test": "react-scripts test",
+    "eject": "react-scripts eject"
   }
 }
