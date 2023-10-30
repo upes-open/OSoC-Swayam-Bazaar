@@ -41,31 +41,32 @@ const Registeruser = () => {
   }
 
   return (
-    <div id="box3">
-    <form className="signup" onSubmit={handleSubmit} id="signup1">
-      <h3 id="registeruserh">Sign Up User</h3>
-
-      <label id="registerl1">Email address:</label>
-      <br />
-      <input
-        type="email"
-        onChange={(e) => setEmail(e.target.value)}
-        value={email}
-        id="registerinput1"
-      />
-      <br />
-      <label id="registerl2">Password:</label>
-      <br />
-      <input
-        type="password"
-        onChange={(e) => setPassword(e.target.value)}
-        value={password}
-        id="registerinput2"
-      />
-      <br />
-      <button id="registerb">Sign up</button>
-      <a id="shopkeeper-register-link"  href="/shopkeeper-register">Register as a Shopkeeper</a>
-    </form>
+    <div id="box3" className="flex flex-col justify-center items-center w-screen h-screen">
+      <form className="loginuser lg:w-[500px] flex flex-col justify-center gap-y-6 items-center h-[490px] max-sm:w-screen max-md:w-[500px] md:w-[500px] border-2 border-black" id="userform" onSubmit={handleSubmit}>
+        <h3 id="userh">Sign Up <span style={{ color: 'green' }}>User</span></h3>
+        <div className="space-y-4">
+          <div className="font-bold text-xl">Email address:</div>
+          <input
+            type="email"
+            onChange={(e) => setEmail(e.target.value)}
+            value={email}
+            className="h-10 w-60 rounded-md outline-none p-2"
+          />
+        </div>
+        <div className="space-y-4">
+          <div className="font-bold text-xl">Password:</div>
+          <input
+            type="password"
+            onChange={(e) => setPassword(e.target.value)}
+            value={password}
+            className="h-10 w-60 rounded-md outline-none p-2"
+          />
+        </div>
+        <div>
+          <button className="bg-pink-500 p-3 rounded-full w-36">SignUp</button>
+        </div>
+        <a id="logina" href="/shopkeeper-register">Register as Shopkeeper</a>
+      </form>
     </div>
   )
 }
