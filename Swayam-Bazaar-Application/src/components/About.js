@@ -10,7 +10,7 @@ import logo from "../components/images/Logo_.png";
 import { useEffect, useState } from "react";
 import Footer from "./footer/footer";
 import {GoogleMap, useLoadScript, Marker} from "@react-google-maps/api"
-
+import Logo from "./Logo";
 
 const About = () => {
   const {isLoaded}=useLoadScript({
