@@ -1,6 +1,6 @@
 // About.js
 
-import React from 'react';
+import React, { useMemo } from 'react';
 import { useFormik } from 'formik';
 import axios from 'axios';
 import { Link } from 'react-router-dom';
@@ -9,7 +9,11 @@ import bg from '../components/navbar/bg.jpg';
 import logo from '../components/images/Logo_.png';
 import { useEffect,useState } from 'react';
 import Footer from './footer/footer';
+import {GoogleMap, useLoadScript, Marker} from "@react-google-maps/api"
 const About = () => {
+    const {isLoaded}=useLoadScript({
+        googleMapsApiKey: process.env.GOOGLE_MAPS_API_KEY,
+    });
   const [theme, setTheme] = useState('light');
   const [showChatbot, setShowChatbot] = useState(false);
 
@@ -153,9 +157,18 @@ const About = () => {
           and another for shopkeepers.
         </p>
       </div>
+       <Map/>
       <Footer className="bg-white"/>
     </>
   );
 };
+
+
+function Map(){
+    const center=useMemo(()=>({lat:44,lng:-80}),[]);
+    return <GoogleMap zoom={10} center={{lat:44,lng:-80}} className="w-full h-full" >
+        <Marker position={center} />
+    </GoogleMap>;
+}
 
 export default About;
