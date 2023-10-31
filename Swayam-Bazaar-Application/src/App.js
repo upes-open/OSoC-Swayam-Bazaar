@@ -12,10 +12,13 @@ import Loginshopkeeper from "./components/Loginshopkeeper";
 import Navbar from "./components/navbar/Navbar";
 import ContactForm from "./components/Contact";
 import Footer from "./components/footer/footer";
+import About from "./components/About";
 
 function App() {
 
   return (
+    <>
+    
     <BrowserRouter>
       <Routes>
         <Route path='/' element={<Navbar />}></Route>
@@ -31,8 +34,10 @@ function App() {
         <Route path='/shopkeeper-login' element={<Loginshopkeeper />}></Route>
         <Route path='/contact-us' element={<ContactForm />}></Route>
         <Route path='/footer' element={<Footer />}></Route>
+        <Route path='/about' element={<About />}></Route>
       </Routes>
     </BrowserRouter>
+    </>
   )
 }
 
