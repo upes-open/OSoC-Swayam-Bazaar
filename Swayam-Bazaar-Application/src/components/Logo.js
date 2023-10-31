@@ -11,14 +11,12 @@ const Logo = () => {
     const scene = new THREE.Scene();
     const camera = new THREE.PerspectiveCamera(75, window.innerWidth / window.innerHeight, 0.1, 1000);
     const renderer = new THREE.WebGLRenderer({ canvas });
-    renderer.setSize(200, 50);
+    renderer.setSize(210, 51);
     renderer.setClearColor(0xffffff);
     camera.position.z = 5;
 
-    // Create a custom geometry for your logo (you may need to adjust the dimensions)
     const geometry = new THREE.BoxGeometry(4, 4, 4);
 
-    // Load your custom image as a texture
     const texture = new THREE.TextureLoader().load(logoImage);
     const material = new THREE.MeshBasicMaterial({ map: texture, color: 0xffffff });
 
