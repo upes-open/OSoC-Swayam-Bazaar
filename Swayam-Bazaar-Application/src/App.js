@@ -1,6 +1,5 @@
 
 import "./App.css";
-import SideBar from "./components/Sidebar/SideBar";
 import Login from "./pages/Login";
 import Register from "./pages/Register";
 import { BrowserRouter, Routes, Route } from 'react-router-dom'
@@ -14,12 +13,6 @@ import Navbar from "./components/navbar/Navbar";
 import ContactForm from "./components/Contact";
 import Footer from "./components/footer/footer";
 import About from "./components/About";
-import Dashboard from "./pages/Dashboard";
-import Messages from "./pages/Messages";
-import Analytics from "./pages/Analytics";
-import Order from "./pages/Order";
-import Products from "./pages/Products";
-
 
 function App() {
 
@@ -42,17 +35,6 @@ function App() {
         <Route path='/contact-us' element={<ContactForm />}></Route>
         <Route path='/footer' element={<Footer />}></Route>
         <Route path='/about' element={<About />}></Route>
-    <SideBar>
-        <Routes>
-          <Route path="/Dashboard" element={<Dashboard />} />
-          <Route path="/messages" element={<Messages />} />
-          <Route path="/analytics" element={<Analytics />} />
-          <Route path="/order" element={<Order />} />
-          <Route path="/Products" element={<Products />} />
-
-          <Route path="*" element={<> not found</>} />
-        </Routes>
-      </SideBar>
       </Routes>
     </BrowserRouter>
     </>
