@@ -2,6 +2,8 @@ import React, { useState } from 'react';
 import Modal from 'react-modal';
 import ImageUpload from './ImageUpload'; // Import the ImageUpload component
 import "./style/Product_add.css"
+import { useFormik } from "formik";
+import axios from "axios";
 
 const Products = () => {
   const [visible, setvisible] = useState(false);
@@ -10,6 +12,26 @@ const Products = () => {
       category: '',
       price: '',
   });
+
+  const formik = useFormik({
+    initialValues: {
+      name: "",
+      category: "",
+      price: "",
+    },
+    onSubmit
+  })
+
+  const port = process.env.REACT_APP_API_PORT || 5000;
+  async function onSubmit(values) {
+    axios.post(`http://localhost:${port}/api/Products/products`, values)
+      .then(result => {
+        console.log(result);
+        formik.resetForm();
+      })
+      .catch(err => console.log(err))
+    console.log(values)
+  }
 
   const openModal = () => {
     setvisible(true);
@@ -30,18 +52,21 @@ const Products = () => {
     closeModal();
   };
 
+  
+
   return (
     <div>
       <div className="title">Products</div>
       <button className="button" onClick={openModal}>Open Modal</button>
       <Modal isOpen={visible} className="modal-content">
         <h1>Product Information</h1>
-        <form onSubmit={handleSubmit}>
+        <form onSubmit={formik.handleSubmit}>
           <ImageUpload></ImageUpload>
           <label className="form-label">Product Name:</label>
           <input
             type="text"
             name="name"
+            {...formik.getFieldProps('name')}
             value={productData.name}
             onChange={handleInputChange}
             className="form-input"
@@ -50,6 +75,7 @@ const Products = () => {
           <input
             type="text"
             name="category"
+            {...formik.getFieldProps('category')}
             value={productData.category}
             onChange={handleInputChange}
             className="form-input"
@@ -58,6 +84,7 @@ const Products = () => {
           <input
             type="text"
             name="price"
+            {...formik.getFieldProps('price')}
             value={productData.price}
             onChange={handleInputChange}
             className="form-input"
