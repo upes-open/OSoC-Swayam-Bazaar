@@ -21,27 +21,28 @@ function App() {
 
   return (
     <>
-    
-    <BrowserRouter>
-      <Routes>
-        <Route path='/' element={<Dashboard />}></Route>
-        <Route path='/products' element={<Products />}></Route>
-        <Route path='/order' element={<Order />}></Route>
 
-        <Route path='/login' element={<Login />}></Route>
-        <Route path='/register' element={<Register />}></Route>
-        <Route path='/feedback' element={<Feedback />}></Route>
-        <Route path='/feed' element={<Feed />}></Route>
-        <Route path='/listshop' element={<ListShop />}></Route>
-        <Route path='/displayshop' element={<Displayshop />}></Route>
-        <Route path='/shopkeeper-register' element={<RegisterShopkeeper />}></Route>
-        <Route path='/shopkeeper-login' element={<Loginshopkeeper />}></Route>
-        <Route path='/contact-us' element={<ContactForm />}></Route>
-        <Route path='/footer' element={<Footer />}></Route>
-        <Route path='/about' element={<About />}></Route>
-        <Route path='/dashboard' element={<Dashboard />}></Route>
-      </Routes>
-    </BrowserRouter>
+      <BrowserRouter>
+        <Routes>
+          <Route path='/' element={<Dashboard />}>
+            <Route path='/Products' element={<Products />}></Route>
+            <Route path='/order' element={<Order />}></Route>
+          </Route>
+
+
+          <Route path='/login' element={<Login />}></Route>
+          <Route path='/register' element={<Register />}></Route>
+          <Route path='/feedback' element={<Feedback />}></Route>
+          <Route path='/feed' element={<Feed />}></Route>
+          <Route path='/listshop' element={<ListShop />}></Route>
+          <Route path='/displayshop' element={<Displayshop />}></Route>
+          <Route path='/shopkeeper-register' element={<RegisterShopkeeper />}></Route>
+          <Route path='/shopkeeper-login' element={<Loginshopkeeper />}></Route>
+          <Route path='/contact-us' element={<ContactForm />}></Route>
+          <Route path='/footer' element={<Footer />}></Route>
+          <Route path='/about' element={<About />}></Route>
+        </Routes>
+      </BrowserRouter>
     </>
   )
 }
