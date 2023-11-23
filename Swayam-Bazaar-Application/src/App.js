@@ -21,10 +21,8 @@ function App() {
     
     <BrowserRouter>
       <Routes>
-        <Route path='/' element={<Navbar />}></Route>
-
+        <Route path='/' element={<About />}></Route>
         <Route path='/login' element={<Login />}></Route>
-
         <Route path='/register' element={<Register />}></Route>
         <Route path='/feedback' element={<Feedback />}></Route>
         <Route path='/feed' element={<Feed />}></Route>
