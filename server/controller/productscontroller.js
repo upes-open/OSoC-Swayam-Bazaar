@@ -1,7 +1,7 @@
 const mongoose = require("mongoose");
-const ProductsModel = require("../models/Schema");
+const ProductsModel = require("../models/Products.js");
 
-const createProducts = async (req, res) => {  ProductsModel.create(req.body)
+const products = async (req, res) => {  ProductsModel.create(req.body)
     .then((products) => res.json(products))
     .catch((err) => res.json(err));
 };
@@ -17,4 +17,4 @@ const getProducts = async (req, res) => {
       res.status(500).send(err);
     });
 };
-module.exports = { createProducts, getProducts };
+module.exports = { products, getProducts };
