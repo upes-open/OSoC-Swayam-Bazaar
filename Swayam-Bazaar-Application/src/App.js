@@ -13,6 +13,7 @@ import Navbar from "./components/navbar/Navbar";
 import ContactForm from "./components/Contact";
 import Footer from "./components/footer/footer";
 import About from "./components/About";
+import Dashboard from "./components/dashboard/dashboard";
 
 function App() {
 
@@ -21,7 +22,8 @@ function App() {
     
     <BrowserRouter>
       <Routes>
-        <Route path='/' element={<About />}></Route>
+        <Route path='/' element={<Navbar />}></Route>
+
         <Route path='/login' element={<Login />}></Route>
         <Route path='/register' element={<Register />}></Route>
         <Route path='/feedback' element={<Feedback />}></Route>
@@ -33,6 +35,7 @@ function App() {
         <Route path='/contact-us' element={<ContactForm />}></Route>
         <Route path='/footer' element={<Footer />}></Route>
         <Route path='/about' element={<About />}></Route>
+        <Route path='/dashboard' element={<Dashboard />}></Route>
       </Routes>
     </BrowserRouter>
     </>

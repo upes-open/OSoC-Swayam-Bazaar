@@ -1,7 +1,7 @@
-import React, { useState, useEffect } from 'react'; 
+import React, { useState, useEffect } from 'react';
 import { Link } from 'react-router-dom';
 import Switch from 'react-switch';
-import bg from './bg.jpg';
+import Feed from "../GroceriesList";
 import './navbar.css';
 import logo from "../images/Logo_.png"
 import Footer from '../footer/footer';
@@ -21,7 +21,7 @@ const Navbar = (props) => {
 
   useEffect(() => {
     if (theme !== 'dark') {
-      document.body.style.background = `url(${bg}) `;
+      //document.body.style.background = `url(${bg}) `;
       // document.body.style.backgroundSize = 'cover';
     } else {
       document.body.style.backgroundColor = 'rgba(0, 0, 0, 0.8)';
@@ -34,7 +34,6 @@ const Navbar = (props) => {
   return (
     <div>
       <nav className={`navbar navbar-expand-lg navbar-${theme === 'dark' ? 'dark' : 'light'} flex justify-center`} style={{ backgroundColor: theme === "dark" ? "#333" : "white" }}>
-
         <div className="container-fluid">
 
           <div className='ms-2'>
@@ -99,6 +98,10 @@ const Navbar = (props) => {
 
         </div>
       </nav>
+      <div >
+      <Feed />
+      </div>
+      
       <div id="chatbot" onClick={toggleChatbot}>
         <img style={{"borderRadius":"50%"}} src="https://i.postimg.cc/rsX9rJ7p/chatbot.jpg" alt="" />
         </div>
