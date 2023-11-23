@@ -14,6 +14,8 @@ import ContactForm from "./components/Contact";
 import Footer from "./components/footer/footer";
 import About from "./components/About";
 import Dashboard from "./components/dashboard/dashboard";
+import Products from "./components/dashboard/Products";
+import Order from "./components/dashboard/Order";
 
 function App() {
 
@@ -22,7 +24,9 @@ function App() {
     
     <BrowserRouter>
       <Routes>
-        <Route path='/' element={<Navbar />}></Route>
+        <Route path='/' element={<Dashboard />}></Route>
+        <Route path='/products' element={<Products />}></Route>
+        <Route path='/order' element={<Order />}></Route>
 
         <Route path='/login' element={<Login />}></Route>
         <Route path='/register' element={<Register />}></Route>
