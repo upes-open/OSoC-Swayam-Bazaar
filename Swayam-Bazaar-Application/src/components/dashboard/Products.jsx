@@ -2,6 +2,8 @@ import React, { useState } from 'react';
 import Modal from 'react-modal';
 import ImageUpload from './ImageUpload'; // Import the ImageUpload component
 import "./style/Product_add.css"
+import { useFormik } from "formik";
+import axios from "axios";
 
 const Products = () => {
   const [visible, setvisible] = useState(false);
