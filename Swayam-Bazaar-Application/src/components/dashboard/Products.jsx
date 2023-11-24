@@ -61,14 +61,14 @@ const Products = () => {
       <Modal isOpen={visible} className="modal-content">
         <h1>Product Information</h1>
         <form onSubmit={formik.handleSubmit}>
-          <ImageUpload></ImageUpload>
+          {/* <ImageUpload></ImageUpload> */}
           <label className="form-label">Product Name:</label>
           <input
             type="text"
             name="name"
             {...formik.getFieldProps('name')}
-            value={productData.name}
-            onChange={handleInputChange}
+            // value={productData.name}
+            // onChange={handleInputChange}
             className="form-input"
           />
           <label className="form-label">Product Category:</label>
@@ -76,8 +76,8 @@ const Products = () => {
             type="text"
             name="category"
             {...formik.getFieldProps('category')}
-            value={productData.category}
-            onChange={handleInputChange}
+            // value={productData.category}
+            // onChange={handleInputChange}
             className="form-input"
           />
           <label className="form-label">Price:</label>
@@ -85,8 +85,8 @@ const Products = () => {
             type="text"
             name="price"
             {...formik.getFieldProps('price')}
-            value={productData.price}
-            onChange={handleInputChange}
+            // value={productData.price}
+            // onChange={handleInputChange}
             className="form-input"
           />
           <div className="button-container">
