@@ -1,43 +1,74 @@
-/* eslint-disable array-callback-return */
-/* eslint-disable jsx-a11y/img-redundant-alt */
 import axios from "axios";
 import React, { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
 
-export default function Displayshop() {
+function ShopCard({ shop }) {
+  return (
+    <div className="bg-white p-4 md:p-6 rounded-lg shadow-md">
+      <div className="flex flex-col items-center md:items-start h-full">
+        <div className="mb-4 h-40 md:h-48">
+          <img src={shop.shopimage} alt={shop.shopname} className="w-full h-full object-cover rounded" />
+        </div>
+        <h2 className="text-2xl md:text-3xl font-bold mb-2 text-green-800">
+          {shop.shopname}
+        </h2>
+        <p className="text-lg md:text-base text-gray-800 mb-2 font-semibold">
+          {shop.description}
+        </p>
+        <p className="text-lg md:text-base text-gray-600 mb-2 font-semibold">
+          {shop.address}
+        </p>
+        <p className="text-lg md:text-base text-gray-600 font-semibold">
+          {shop.contactnumber}
+        </p>
+      </div>
+    </div>
+  );
+}
+
+export default function DisplayShop() {
   const [shops, setShops] = useState(null);
-  const [query, setQuery] = useState("");
-  const port = process.env.REACT_APP_API_PORT || 3001;
+  const [searchQuery, setSearchQuery] = useState("");
+  const apiPort = process.env.REACT_APP_API_PORT || 3001;
 
   useEffect(() => {
-    const fetchData = async () => {
+    const fetchShops = async () => {
       try {
-        const response = await axios.get(`http://localhost:${port}/displayshop`);
+        const response = await axios.get(`http://localhost:${apiPort}/displayshop`);
         setShops(response.data);
       } catch (error) {
-        console.log("Error fetching data of shops", error);
+        console.error("Error fetching shop data", error);
       }
     };
-    fetchData();
-  }, []);
+    fetchShops();
+  }, [apiPort]);
+
+  const filteredShops = shops
+    ? shops.filter((shop) => {
+        if (searchQuery.trim() === "") {
+          return true;
+        }
+        return shop.shopname.toLowerCase().includes(searchQuery.toLowerCase());
+      })
+    : [];
 
   return (
-    <div className="mt-5">
-      <div className="flex flex-col md:flex-row justify-center gap-2 md:gap-48">
+    <div className="container mx-auto mt-5">
+      <div className="flex flex-col md:flex-row justify-center gap-4 md:gap-8 items-center">
         <Link to="/listshop">
-          <button className="bg-blue-500 hover:bg-blue-600 text-white font-semibold rounded-lg h-14 w-full md:w-44">
+          <button className="bg-green-500 hover:bg-green-600 text-white font-semibold rounded-lg h-14 w-full md:w-44">
             List Your Shop Now
           </button>
         </Link>
-        <div className="flex justify-center items-center mt-4 md:mt-0">
-          <div className="relative">
+        <div className="flex justify-center items-center mt-4 md:mt-0 w-full md:w-1/2">
+          <div className="relative w-full">
             <input
               type="text"
               placeholder="Search"
-              className="w-full md:w-64 px-4 py-2 bg-gray-200 rounded-full text-gray-700 placeholder-gray-500 focus:outline-none focus:ring-2 focus:ring-blue-500"
-              onChange={(event) => setQuery(event.target.value)}
+              className="w-full px-4 py-2 bg-gray-100 rounded-full text-gray-800 placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-green-500"
+              onChange={(event) => setSearchQuery(event.target.value)}
             />
-            <button className="absolute top-0 right-0 h-full px-4 text-white bg-blue-500 rounded-full hover:bg-blue-600">
+            <button className="absolute top-0 right-0 h-full px-4 text-white bg-green-500 rounded-full hover:bg-green-600">
               <svg
                 className="w-6 h-6"
                 fill="none"
@@ -56,46 +87,10 @@ export default function Displayshop() {
           </div>
         </div>
       </div>
-      <div className="mt-5 lg:ml-16 mr-5 ml-5 grid grid-cols-1 md:grid-cols-3 gap-4">
-        {shops &&
-          shops
-            .filter((shop) => {
-              if (query.trim() === "") {
-                return shop;
-              } else if (
-                shop.shopname.toLowerCase().includes(query.toLowerCase())
-              ) {
-                return shop;
-              }
-            })
-            .map((shop) => (
-              <div
-                key={shop.shopname}
-                className="bg-white p-6 rounded-lg shadow-md md:w-96"
-              >
-                <div className="flex flex-col items-center md:items-start h-cover ">
-                  <div className="mb-4 h-48 ">
-                    <img
-                      src={`${shop.shopimage}`}
-                      alt="Shop Image"
-                      className="h-full w-96 object-fill rounded"
-                    />
-                  </div>
-                  <h2 className="text-3xl font-bold mb-2 text-blue-800">
-                    {shop.shopname}
-                  </h2>
-                  <p className="text-lg text-black mb-2 font-semibold">
-                    {shop.description}
-                  </p>
-                  <p className="text-lg text-gray-600 mb-2 font-semibold">
-                    {shop.address}
-                  </p>
-                  <p className="text-lg text-gray-600 font-semibold">
-                    {shop.contactnumber}
-                  </p>
-                </div>
-              </div>
-            ))}
+      <div className="mt-5 grid grid-cols-1 md:grid-cols-3 gap-4">
+        {filteredShops.map((shop) => (
+          <ShopCard key={shop.shopname} shop={shop} />
+        ))}
       </div>
     </div>
   );
