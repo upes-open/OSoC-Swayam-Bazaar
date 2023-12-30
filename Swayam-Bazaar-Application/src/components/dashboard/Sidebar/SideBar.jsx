@@ -10,7 +10,7 @@ import { AnimatePresence, motion } from "framer-motion";
 import SidebarMenu from "./SidebarMenu";
 const routes = [
   {
-    path: "/",
+    path: "/dashboard",
     name: "Dashboard",
     icon: <FaHome />,
   },

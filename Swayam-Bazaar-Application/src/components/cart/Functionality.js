@@ -1,8 +1,8 @@
-import Header from './components/cart/Header';
-import Basket from './components/cart/Basket';
-import Main from './components/cart/Main'
+import Header from './Header';
+import Basket from './Basket';
+import Main from './Main'
 import React, { useState } from 'react';
-import data from './components/cart/data';
+import data from './data';
 
 function Functionality() {
     // Assuming 'data' is defined somewhere and contains 'products'
