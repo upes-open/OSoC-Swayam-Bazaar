@@ -1,5 +1,5 @@
 import React from 'react';
-import '../css/GroceriesList.css';
+import '../../css/GroceriesList.css';
 import groceriesData from './groceriesData';
 
 const GroceryCard = ({ image, name, Address, openingTime, closingTime }) => {

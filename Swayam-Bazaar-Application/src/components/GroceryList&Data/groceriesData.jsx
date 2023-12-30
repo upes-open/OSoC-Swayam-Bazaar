@@ -1,7 +1,7 @@
-import RiceImage from"./images/Rice.jpg";
-import SoyBeans from "./images/Soybeans.jpg";
-import Tomato from "./images/Tomatoes.jpg";
-import Raymond from "./images/Logo_.png";
+import RiceImage from"../images/Rice.jpg";
+import SoyBeans from "../images/Soybeans.jpg";
+import Tomato from "../images/Tomatoes.jpg";
+import Raymond from "../images/Logo_.png";
 
 
 const groceriesData = [
