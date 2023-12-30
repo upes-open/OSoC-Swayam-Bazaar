@@ -1,23 +1,23 @@
 import React, { useState, useEffect } from 'react';
 import { Link } from 'react-router-dom';
 import Switch from 'react-switch';
-import Feed from "../GroceriesList";
+import Feed from "../GroceryList&Data/GroceriesList";
 import './navbar.css';
 import logo from "../images/Logo_.png"
 import Footer from '../footer/footer';
 
 const Navbar = (props) => {
   const [theme, setTheme] = useState('light');
-  const [showChatbot, setShowChatbot] = useState(false);
+  // const [showChatbot, setShowChatbot] = useState(false);
 
   const toggleTheme = (theme) => {
     setTheme(theme === 'light' ? 'dark' : 'light');
     console.log(theme);
   };
 
-  const toggleChatbot = () => {
-    setShowChatbot((prevShowChatbot) => !prevShowChatbot);
-  };
+  // const toggleChatbot = () => {
+  //   setShowChatbot((prevShowChatbot) => !prevShowChatbot);
+  // };
 
   useEffect(() => {
     if (theme !== 'dark') {
@@ -68,7 +68,7 @@ const Navbar = (props) => {
                 </Link>
               </div>
               <div className="nav-item">
-                <Link className={`nav-link ${theme === 'dark' ? 'dark-mode' : ''}`} to="/contact-us">
+                <Link className={`nav-link ${theme === 'dark' ? 'dark-mode' : ''}`} to="/contactus">
                   Contact Us
                 </Link>
               </div>
@@ -98,11 +98,11 @@ const Navbar = (props) => {
 
         </div>
       </nav>
-      <div >
+      <div className={`nav-link ${theme === 'dark' ? 'dark-mode' : ''}`} to="/GroceriesList">
       <Feed />
-      </div>
+  </div>
       
-      <div id="chatbot" onClick={toggleChatbot}>
+      {/* <div id="chatbot" onClick={toggleChatbot}>
         <img style={{"borderRadius":"50%"}} src="https://i.postimg.cc/rsX9rJ7p/chatbot.jpg" alt="" />
         </div>
         {showChatbot && (
@@ -112,7 +112,7 @@ const Navbar = (props) => {
             allow="microphone;"
             src="https://console.dialogflow.com/api-client/demo/embedded/13534f69-0b84-4698-8077-a0bc8e10e546"
           ></iframe>
-        )}
+        )} */}
       <div className='footer'>
         <Footer/>
       </div>
