@@ -138,7 +138,7 @@ export default function SignUp() {
 
   const handleLoginLink = () => {
     // Navigate to the login page
-    navigate('/Login');
+    navigate('/loginshopkeeper');
   };
 
   return (
@@ -275,7 +275,7 @@ export default function SignUp() {
             <Grid container justifyContent="flex-end">
               <Grid item>
                 <Link href="#" variant="body2" onClick={handleLoginLink}>
-                  <Link to="/LogIn">Already have an account? Log in</Link>
+                  <Link to="/Loginshopkeeper">Already have an account? Log in</Link>
                 </Link>
               </Grid>
             </Grid>
