@@ -57,32 +57,32 @@ export default function SignUp() {
   const passwordRef = useRef();
   const passwordConfirmRef = useRef();
   const mobileRef = useRef();
-  const accessRef = useRef();
+  // const accessRef = useRef();
 
-  // const { signup } = useAuth();
+  const { signup } = useAuth();
   const [error, setError] = useState('');
   const [loading, setLoading] = useState(false);
   const [signupSuccess, setSignupSuccess] = useState(false);
   const [isCheckboxChecked, setIsCheckboxChecked] = useState(false);
   const [showError, setShowError] = useState(false);
   const navigate = useNavigate();
-  const [formData, setFormData] = useState({
-    accesskey: "",
-  });
+  // const [formData, setFormData] = useState({
+  //   accesskey: "",
+  // });
 
   const handleCheckboxChange = (event) => {
     setIsCheckboxChecked(event.target.checked);
   };
 
   // Access key
-  async function checkAccessKeyInFirestore(accesskey) {
-    const accessKeysCollection = collection(db, 'accessKey');
-    const accessKeyQuery = query(accessKeysCollection, where('accesskey', '==', accesskey));
+  // async function checkAccessKeyInFirestore(accesskey) {
+  //   const accessKeysCollection = collection(db, 'accessKey');
+  //   const accessKeyQuery = query(accessKeysCollection, where('accesskey', '==', accesskey));
 
-    const querySnapshot = await getDocs(accessKeyQuery);
+  //   const querySnapshot = await getDocs(accessKeyQuery);
 
-    return !querySnapshot.empty;
-  }
+  //   return !querySnapshot.empty;
+  // }
 
   async function handleSubmit(e) {
     e.preventDefault();
@@ -91,24 +91,30 @@ export default function SignUp() {
       return setError('Passwords do not match');
     }
 
-    const providedAccessKey = accessRef.current.value;
+    // const providedAccessKey = accessRef.current.value;
 
     try {
       if (!isCheckboxChecked) {
         throw new Error('Please agree to the terms and conditions');
       }
-
-      // Check if the access key is present in Firestore
-      const isAccessKeyValid = await checkAccessKeyInFirestore(providedAccessKey);
-
-      if (isAccessKeyValid) {
+      else{
         setError('');
         setLoading(true);
-        // await signup(emailRef.current.value, passwordRef.current.value);
+        await signup(emailRef.current.value, passwordRef.current.value);
         setSignupSuccess(true);
-      } else {
-        throw new Error('Invalid access key');
       }
+
+      // Check if the access key is present in Firestore
+      // const isAccessKeyValid = await checkAccessKeyInFirestore(providedAccessKey);
+
+      // if (isAccessKeyValid) {
+      //   setError('');
+      //   setLoading(true);
+      //   // await signup(emailRef.current.value, passwordRef.current.value);
+      //   setSignupSuccess(true);
+      // } else {
+      //   throw new Error('Invalid access key');
+      // }
     } catch (error) {
       console.error("Error during signup:", error.message);
       setError(error.message);
@@ -123,7 +129,7 @@ export default function SignUp() {
       const timeoutId = setTimeout(() => {
         setSignupSuccess(false); // Reset signupSuccess after redirect
         // UseNavigate hook to programmatically navigate to the login page
-        navigate('/LogIn');
+        navigate('/LoginUser');
       }, 1000); // 1000 milliseconds (1 second)
 
       // Cleanup the timeout to avoid memory leaks
@@ -244,7 +250,7 @@ export default function SignUp() {
                   autoFocus
                 />
               </Grid>
-              <Grid item xs={12} sm={6}>
+              {/* <Grid item xs={12} sm={6}>
                 <TextField
                   required
                   fullWidth
@@ -254,7 +260,7 @@ export default function SignUp() {
                   name="accesskey"
                   autoComplete="number"
                 />
-              </Grid>
+              </Grid> */}
               <Grid item xs={12}>
                 <FormControlLabel
                   control={<Checkbox value="allowExtraEmails" color="primary" onChange={handleCheckboxChange} />}
