@@ -1,12 +1,13 @@
 import { useFormik } from "formik";
 import { Link } from "react-router-dom";
 import axios from "axios";
-import "../css/feedback.css";
+import "../../css/feedback.css";
 import React, { useState, useEffect } from 'react'; 
 import Switch from 'react-switch';
-import bg from '../components/navbar/bg.jpg';
-import '../components/navbar/navbar.css';
-import logo from "../components/images/Logo_.png"
+import bg from '../../components/navbar/bg.jpg';
+import '../../components/navbar/navbar.css';
+import logo from "../../components/images/Logo_.png"
+import { width } from "@mui/system";
 // import FeedbackModel from "../../models/Schema";
 export default function Feedback() {
   const [theme, setTheme] = useState('light');
@@ -131,9 +132,9 @@ export default function Feedback() {
         </div>
       </nav>
       <div class="container1">
-        <Link to="/feed">
+        <Link to="/feeds">
           {" "}
-          <button className="px-4 py-2 bg-green-700 text-white absolute rounded-lg top-10 left-10">
+          <button className="px-4 py-2 bg-green-700 text-white absolute rounded-lg top-10 left-4" style={{width: '15%', height: '5%'}}>
             Check All Feedbacks
           </button>
         </Link>

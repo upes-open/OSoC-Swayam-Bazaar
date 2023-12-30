@@ -1,12 +1,12 @@
 import { useFormik } from "formik";
-import '../css/contact.css';
+import '../../css/contact.css';
 import axios from 'axios';
 import { Link } from "react-router-dom";
 import React, { useState, useEffect } from 'react'; 
 import Switch from 'react-switch';
-import bg from '../components/navbar/bg.jpg';
-import '../components/navbar/navbar.css';
-import logo from "../components/images/Logo_.png"
+import bg from '../../components/navbar/bg.jpg';
+import '../../components/navbar/navbar.css';
+import logo from "../../components/images/Logo_.png"
 const ContactUsPage = () => {
   const [theme, setTheme] = useState('light');
   const [showChatbot, setShowChatbot] = useState(false);

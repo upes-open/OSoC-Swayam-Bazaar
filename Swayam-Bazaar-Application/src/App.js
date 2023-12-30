@@ -1,48 +1,39 @@
 
 import "./App.css";
-import Login from "./pages/Login";
-import Register from "./pages/Register";
-import { BrowserRouter, Routes, Route } from 'react-router-dom'
-import Feedback from "./components/feedback";
-import Feed from "./components/allfeed";
-import ListShop from "./components/listShop";
-import Displayshop from "./components/displayShop";
-import RegisterShopkeeper from "./components/RegisterShopkeeper";
-import Loginshopkeeper from "./components/Loginshopkeeper";
-import Navbar from "./components/navbar/Navbar";
-import ContactForm from "./components/Contact";
-import Footer from "./components/footer/footer";
-import About from "./components/About";
-import Dashboard from "./components/dashboard/dashboard";
+import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
+import LoginUser from "./components/loginregisterasuser/Loginuser";
+import RegisterUser from "./components/loginregisterasuser/Registeruser";
+import LoginShopkeeper from './components/loginregisterasshopkeeper/Loginshopkeeper';
+import RegisterShopkeeper from './components/loginregisterasshopkeeper/RegisterShopkeeper';
+import Navbar from './components/navbar/Navbar';
+import Feedback from './components/Feedbacks/feedback.js';
+import Feed from './components/Feedbacks/allfeed.js';
+import ContactUs from './components/ContactUs/Contact.js';
+import Dashboard from "./components/dashboard/dash";
 import Products from "./components/dashboard/Products";
 import Order from "./components/dashboard/Order";
 
 function App() {
-
   return (
     <>
-
-      <BrowserRouter>
+      <Router>
         <Routes>
-          <Route path='/' element={<Dashboard />}>
+          <Route path='/' element={<LoginUser />}></Route>
+          <Route path='/loginuser' element={<LoginUser />}></Route>
+          <Route path='/registeruser' element={<RegisterUser />}></Route>
+          <Route path='/loginshopkeeper' element={<LoginShopkeeper />}></Route>
+          <Route path='/registershopkeeper' element={<RegisterShopkeeper />}></Route>
+          <Route path='/navbar' element={<Navbar />}></Route>
+          <Route path='/feedback' element={<Feedback />}></Route>
+          <Route path='/feeds' element={<Feed />}></Route>
+          <Route path='/contactus' element={<ContactUs />}></Route>
+          <Route path='/' element={<Dashboard />} >
+            <Route path='/dashboard' element={<Dashboard />}></Route>
             <Route path='/Products' element={<Products />}></Route>
             <Route path='/order' element={<Order />}></Route>
           </Route>
-
-
-          <Route path='/login' element={<Login />}></Route>
-          <Route path='/register' element={<Register />}></Route>
-          <Route path='/feedback' element={<Feedback />}></Route>
-          <Route path='/feed' element={<Feed />}></Route>
-          <Route path='/listshop' element={<ListShop />}></Route>
-          <Route path='/displayshop' element={<Displayshop />}></Route>
-          <Route path='/shopkeeper-register' element={<RegisterShopkeeper />}></Route>
-          <Route path='/shopkeeper-login' element={<Loginshopkeeper />}></Route>
-          <Route path='/contact-us' element={<ContactForm />}></Route>
-          <Route path='/footer' element={<Footer />}></Route>
-          <Route path='/about' element={<About />}></Route>
         </Routes>
-      </BrowserRouter>
+      </Router>
     </>
   )
 }
