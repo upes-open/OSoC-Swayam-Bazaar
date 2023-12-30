@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import { Link } from 'react-router-dom';
 import Switch from 'react-switch';
-import Feed from "../GroceriesList";
+import Feed from "../GroceryList&Data/GroceriesList";
 import './navbar.css';
 import logo from "../images/Logo_.png"
 import Footer from '../footer/footer';
@@ -68,7 +68,7 @@ const Navbar = (props) => {
                 </Link>
               </div>
               <div className="nav-item">
-                <Link className={`nav-link ${theme === 'dark' ? 'dark-mode' : ''}`} to="/contact-us">
+                <Link className={`nav-link ${theme === 'dark' ? 'dark-mode' : ''}`} to="/contactus">
                   Contact Us
                 </Link>
               </div>

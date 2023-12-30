@@ -8,7 +8,7 @@ import Switch from 'react-switch';
 import bg from '../components/navbar/bg.jpg';
 import logo from '../components/images/Logo_.png';
 import { useEffect, useState } from 'react';
-import Footer from './footer/footer';
+import Footer from '../footer/footer';
 import { GoogleMap, useLoadScript, Marker } from "@react-google-maps/api"
 const About = () => {
   const { isLoaded } = useLoadScript({

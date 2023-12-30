@@ -1,7 +1,6 @@
 import axios from "axios";
 import React, { useEffect, useState } from "react";
-import '../css/feed.css';
-import image from './images/feed.jpg'
+import '../../css/feed.css';
 
 export default function Feed() {
   const [feeds, setFeeds] = useState(null);
@@ -21,7 +20,8 @@ export default function Feed() {
   }, [port]);
 
   useEffect(() => {
-    document.body.style.background = `url(${image}) `;
+    // document.body.style.background = `url(${image}) `;
+    document.body.style.background = `url() `;
     document.body.style.backgroundSize = 'cover';
 
     return () => {

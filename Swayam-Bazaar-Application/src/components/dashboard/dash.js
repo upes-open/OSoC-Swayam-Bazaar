@@ -1,20 +1,18 @@
 import "./dashboard.css";
-import SideBar from "./Sidebar/SideBar";
+import SideBar from "./Sidebar/SideBar.jsx";
 import { BrowserRouter as Router, Route, Routes } from "react-router-dom";
 
-import Dashboard from "./Dashboard.jsx";
-import Order from "./Order";
-import Products from "./Products";
+import Dashboard from "./mainDashboardd.jsx";
+import Order from "./Order.jsx";
+import Products from "./Products.jsx";
 function dashboard() {
   return (
     // <Router>
       <SideBar>
         <Routes>
-          <Route path="/" element={<Dashboard />} />
+          <Route path="/dashboard" element={<Dashboard />} />
           <Route path="/order" element={<Order />} />
           <Route path="/Products" element={<Products />} />
-
-          <Route path="*" element={<> not found</>} />
         </Routes>
       </SideBar>
     // </Router>
