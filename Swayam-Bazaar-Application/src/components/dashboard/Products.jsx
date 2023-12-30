@@ -7,11 +7,40 @@ import axios from "axios";
 
 const Products = () => {
   const [visible, setvisible] = useState(false);
-    const [productData, setProductData] = useState({
-      name: '',
-      category: '',
-      price: '',
-  });
+  const [selectedImage, setSelectedImage] = useState(null);
+
+
+  const handleImageSelect = (file) => {
+    setSelectedImage(file);
+  };
+
+  const imagebase64 = (file) =>{
+    const reader = new FileReader()
+    reader.readAsDataURL(file)
+    const data = new Promise((resolve,reject)=>{
+      reader.onload = ()=> resolve(reader.result)
+      reader.onerror = (err)=> reject(err)
+    })
+    return data
+  }
+
+  const handleSubmit = async (e) => {
+    // e.preventDefault();
+
+    const uploadImage = await imagebase64(selectedImage);
+
+    const formData = {"name" : formik.values.name,"category" : formik.values.category,"price" : formik.values.price,"picture" : uploadImage}
+
+    // Make the API call
+    axios.post(`http://localhost:${port}/api/Products/products`, formData,)
+      .then(result => {
+        console.log(result);
+        formik.resetForm();
+      })
+      .catch(err => console.log(err));
+
+    closeModal();
+  };
 
   const formik = useFormik({
     initialValues: {
@@ -19,19 +48,10 @@ const Products = () => {
       category: "",
       price: "",
     },
-    onSubmit
+    onSubmit:handleSubmit
   })
 
   const port = process.env.REACT_APP_API_PORT || 5000;
-  async function onSubmit(values) {
-    axios.post(`http://localhost:${port}/api/Products/products`, values)
-      .then(result => {
-        console.log(result);
-        formik.resetForm();
-      })
-      .catch(err => console.log(err))
-    console.log(values)
-  }
 
   const openModal = () => {
     setvisible(true);
@@ -41,18 +61,6 @@ const Products = () => {
     setvisible(false);
   };
 
-  const handleInputChange = (e) => {
-    const { name, value } = e.target;
-    setProductData({ ...productData, [name]: value });
-  };
-
-  const handleSubmit = (e) => {
-    e.preventDefault();
-    console.log('Product Data:', productData);
-    closeModal();
-  };
-
-  
 
   return (
     <div>
@@ -61,7 +69,7 @@ const Products = () => {
       <Modal isOpen={visible} className="modal-content">
         <h1>Product Information</h1>
         <form onSubmit={formik.handleSubmit}>
-          {/* <ImageUpload></ImageUpload> */}
+        <ImageUpload onImageSelect={handleImageSelect} />
           <label className="form-label">Product Name:</label>
           <input
             type="text"
