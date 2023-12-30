@@ -1,0 +1,54 @@
+/* Slider.css */
+
+.custom-slider {
+    position: relative;
+    width: 80%;
+    margin:0;
+}
+
+.slider-container {
+    overflow: hidden;
+}
+
+.slides {
+    display: flex;
+    transition: transform 0.5s ease-in-out;
+    
+}
+
+.slide {
+    position:relative;
+    display: flex;
+    min-width: 100%;
+    
+    
+}
+
+.prev-btn, .next-btn {
+    position: absolute;
+    box-shadow: #333;
+    top: 50%;
+    transform: translateY(-50%);
+    font-size:25px;
+    font-weight:900;
+    color:#333;
+    background-color: #fff;
+    border: 1px solid #333;
+    border-radius:25px;
+    padding: 8px 12px;
+    cursor: pointer;
+}
+
+.prev-btn:hover, .next-btn:hover {
+    color:black;
+    background-color:greenyellow;
+}
+
+.prev-btn {
+    left: 10px;
+    
+}
+
+.next-btn {
+    right: 10px;
+}
