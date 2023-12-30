@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import "./style/ImageUpload.css"
 
-function ImageUpload() {
+function ImageUpload({onImageSelect}) {
   const [selectedFile, setSelectedFile] = useState(null);
 
 
@@ -9,6 +9,7 @@ function ImageUpload() {
     const file = e.target.files[0];
     if (file) {
       setSelectedFile(file);
+      onImageSelect(file);
     } else {
       setSelectedFile(null);
     }
