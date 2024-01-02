@@ -1,28 +1,28 @@
 import React, { useEffect, useState } from "react";
 import '../../css/GroceriesList.css';
 import axios from "axios";
-// import groceriesData from './groceriesData';
+import groceriesData from './groceriesData';
 
 
-function GroceriesList() {
+// function GroceriesList() {
 
-const [groceriesData, setgroceriesData] = useState(null);              //To be uncommented
+// const [groceriesData, setgroceriesData] = useState(null);              //To be uncommented
 
-    useEffect(() => {
-        const fetchData = async () => {
-          try {
-            const response = await axios.get(`http://localhost:5000/api/Products/getAllProducts`);
-            console.log(response.data);
-            setgroceriesData(response.data);
-          } catch (error) {
-            console.error("Error fetching data:", error.message);
-          }
-        };
+//     useEffect(() => {
+//         const fetchData = async () => {
+//           try {
+//             const response = await axios.get(`http://localhost:5000/api/Products/getAllProducts`);
+//             console.log(response.data);
+//             setgroceriesData(response.data);
+//           } catch (error) {
+//             console.error("Error fetching data:", error.message);
+//           }
+//         };
     
-        fetchData();
-      },[]);
+//         fetchData();
+//       },[]);
 
-console.log(groceriesData)
+// console.log(groceriesData)
 const GroceryCard = ({ image, name, Address, openingTime, closingTime }) => {
   return (
     <div className="grocery-card">
@@ -104,6 +104,6 @@ const GroceriesList = ({ theme }) => {
     </div>
   );
 };
-};
+// };
 
 export default GroceriesList;
