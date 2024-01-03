@@ -8,16 +8,14 @@
   color: white !important;
 }
 
-
 .navbar-brand {
   font-family: 'Exo', sans-serif;
   font-weight: 600;
 }
 
 .navbar {
-  padding: 0px;
+  padding: 10px 20px;
   margin: 0px;
-
 }
 
 .nav-link {
@@ -29,11 +27,6 @@
   color: black;
 }
 
-/* .nav-item{
-  margin-top: 7px;
-} */
-
-/* Hide the lines when not in hamburger mode (screen width > 768px) */
 @media screen and (max-width: 991px) {
   .nav-item {
     border-bottom: 1px solid #ccc;
@@ -41,22 +34,40 @@
     margin-bottom: 15px;
     padding-bottom: 10px;
   }
-  .navbar-nav{
-    width: 80%;
+
+  .navbar-nav {
+    width: 100%;
+    text-align: center;
   }
 
-  .switch{
+  .navbar-toggler {
+    margin-top: 10px;
+    margin-right: 10px;
+    width:25%;
+  }
+
+  .navbar-collapse {
+    text-align: center;
+    display: none;
+  }
+
+  .navbar-toggler:focus + .navbar-collapse{
+    display: block;
+  }
+
+  .switch {
     position: absolute;
-    top: 3%;
-    left: 60%;
+    top: 10%;
+    left:50%;
   }
 }
 
-.footer{
+.footer {
   margin-top: 30px;
   background-color: white;
 }
-#chatbot img{
+
+#chatbot img {
   height: 60px;
   width: 60px;
   border-radius: 50%;
