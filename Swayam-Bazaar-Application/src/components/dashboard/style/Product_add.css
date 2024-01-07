@@ -9,6 +9,7 @@
   
   .button {
     position: fixed;
+    width:250px;
     bottom: 5%;
     right: 5%;
     font-size: 1.3vw;
@@ -19,6 +20,10 @@
     padding: 1rem 2rem;
     cursor: pointer;
     box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+  }
+
+  .button:hover{
+    color:#fff;
   }
 
   .modal-content {
@@ -53,6 +58,8 @@
     display: flex;
     justify-content: space-between;
   }
+
+
   
   .close-button {
     background-color: #0074d9; /* Customize the close button's background color */
@@ -64,6 +71,10 @@
     margin-right: 40px;
     cursor: pointer;
   }
+
+  .close-button:hover{
+    color:#fff;
+  }
   
   .submit-button {
     background-color: #0074d9;
@@ -74,6 +85,11 @@
     margin-top: 10px;
     margin-left: 40px;
     cursor: pointer;
+  }
+
+
+  .submit-button:hover{
+    color:#fff;
   }
 
   

@@ -28,19 +28,11 @@ function ImageUpload({onImageSelect}) {
 
   return (
     <div>
-      <h2 style={{ textAlign: 'left' }}>Upload Image</h2>
       <form onSubmit={handleSubmit}>
         <input type="file" onChange={handleFileChange} />
-        <button type="submit">Upload</button>
       </form>
       {selectedFile && (
         <div>
-          <h3>Selected Image Preview</h3>
-          <img
-            src={URL.createObjectURL(selectedFile)}
-            alt="Selected Image"
-            style={{ maxWidth: '100%' }}
-          />
         </div>
       )}
     </div>

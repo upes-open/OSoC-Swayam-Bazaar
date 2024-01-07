@@ -69,7 +69,6 @@ const Products = () => {
       <Modal isOpen={visible} className="modal-content">
         <h1>Product Information</h1>
         <form onSubmit={formik.handleSubmit}>
-        <ImageUpload onImageSelect={handleImageSelect} />
           <label className="form-label">Product Name:</label>
           <input
             type="text"
@@ -80,14 +79,20 @@ const Products = () => {
             className="form-input"
           />
           <label className="form-label">Product Category:</label>
-          <input
-            type="text"
-            name="category"
-            {...formik.getFieldProps('category')}
-            // value={productData.category}
-            // onChange={handleInputChange}
-            className="form-input"
-          />
+<select
+  name="category"
+  {...formik.getFieldProps('category')}
+  // value={productData.category}
+  // onChange={handleInputChange}
+  className="form-input"
+>
+  <option value="">Select</option>
+  <option value="Grocery List">Grocery List</option>
+  <option value="Electronics">Electronics</option>
+  <option value="Clothes Category">Clothes Category</option>
+  <option value="Health And Wellness">Health And Wellness</option>
+</select>
+
           <label className="form-label">Price:</label>
           <input
             type="text"
@@ -97,6 +102,9 @@ const Products = () => {
             // onChange={handleInputChange}
             className="form-input"
           />
+          <br/>
+          <br/>
+          <ImageUpload onImageSelect={handleImageSelect} />
           <div className="button-container">
             <button type="submit" className="submit-button">Submit</button>
             <button className="close-button" onClick={closeModal}>Close Modal</button>
