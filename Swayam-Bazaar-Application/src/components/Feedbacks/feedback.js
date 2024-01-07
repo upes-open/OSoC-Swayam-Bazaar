@@ -132,12 +132,15 @@ export default function Feedback() {
         </div>
       </nav>
       <div class="container1">
-        <Link to="/feeds">
-          {" "}
-          <button className="px-4 py-2 bg-green-700 text-white absolute rounded-lg top-10 left-4" style={{width: '15%', height: '5%'}}>
-            Check All Feedbacks
-          </button>
-        </Link>
+      <Link to="/feeds">
+  <button
+    className="feed-btn"
+    style={{ width: '100%', height: 'auto' }}
+  >
+    Check All Feedbacks
+  </button>
+</Link>
+
         <div class="contact-box flex justify-center w-full m-5">
           <div class="left"></div>
           <div class="right">

@@ -64,27 +64,7 @@
   background-size: cover;
   border-radius: 5px;
   }
-  @media screen and  (max-width:576px){
-    .contact-us-container {
-      padding: 10px;
-      height: 680px;
-    }
-    #contact-heading {
-      font-size: 24px;
-      
-    }
-    .contact-image {
-      display: block;
-      margin-top: 500px;
-      border-radius: 5px;
-      width: 100%;
-      height: 150px; 
-      margin-left: -150px;
-    }
-    .contacti{
-      width: 300px;
-    }
-  }
+ 
   @media screen and (min-width:576px) and (max-width: 768px) {
     .contact-us-container {
       padding: 15px;
@@ -110,12 +90,9 @@
     }
   
     .contact-image {
-      display: block;
-      margin-top:440px;
+      flex: 1;
+      background-size: cover;
       border-radius: 5px;
-      width: 50px;
-      height: 150px; 
-      margin-left: -200px;
     }
   }
   
