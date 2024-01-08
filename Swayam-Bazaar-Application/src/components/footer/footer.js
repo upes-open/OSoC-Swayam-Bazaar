@@ -44,7 +44,7 @@ const Footer = () => {
         <p>From app store or google play</p>
         <div className="row">
           <img src="https://i.postimg.cc/4xTGQhr8/app.jpg" alt="" />
-          <img src="https://i.postimg.cc/FKCspHb7/play.jpg" alt="" />
+          <img src="https://i.postimg.cc/FKCspHb7/play.jpg" alt="" style={{height:"auto",marginRight:"170px"}} />
           <p>Secured payment gateway</p>
           <img src="https://i.postimg.cc/fR2NngVP/pay.png" alt="" style={{width:"200px"}}/>
         </div>
