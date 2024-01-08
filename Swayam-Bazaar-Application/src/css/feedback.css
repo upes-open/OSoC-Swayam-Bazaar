@@ -89,6 +89,7 @@ h2:after{
 
 textarea{
 	min-height: 150px;
+	resize:none;
 }
 
 .btn{
@@ -116,12 +117,37 @@ button:hover{
     background-color: rgb(39, 85, 2);
     color:black;
 }
-
-@media screen and (max-width: 880px){
-	.contact-box{
-		grid-template-columns: 1fr;
+.container1 {
+	padding: 20px 20px; /* Adjust padding for smaller screens */
+  }
+  
+  .contact-box {
+	max-width: 100%; /* Make sure it's responsive */
+  }
+  
+  .right {
+	padding: 25px 20px; /* Adjust padding for smaller screens */
+	width: 100%; /* Make it responsive */
+  }
+   
+  .feed-btn:hover{
+	color:#fff;
+  }
+@media screen and (max-width: 600px) {
+	.container1 {
+	  padding: 20px 10px; /* Adjust padding for even smaller screens */
 	}
-	.left{
-		height: 200px;
+  
+	.contact-box {
+	  grid-template-columns: 1fr; /* Single column layout for smaller screens */
 	}
-}
+  
+	.left {
+	  height: 150px; /* Adjust the height of the left section */
+	}
+  
+	.right {
+	  padding: 25px 10px; /* Adjust padding for smaller screens */
+	}
+  }
+  

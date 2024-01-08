@@ -70,32 +70,263 @@ const getUniqueCategories = () => {
           <React.Fragment key={grocery.id}>
             {(index % 5 === 0) && <h3>{getCategoryName(grocery.id)}</h3>}
             <GroceryCard
-              key={grocery.id}
-              image={grocery.image}
-              name={grocery.name}
-              Address={grocery.Address}
-              openingTime={grocery.openingTime}
-              closingTime={grocery.closingTime}
+            image={RiceImage}
+            name='Basmati Rice'
+            Address='Lorem-Ipsum Dolor-715245'
+            openingTime='08:00 AM'
+            closingTime='08:00 PM'
+            button='click'
             />
-          </React.Fragment>
-        ))}
+
+<GroceryCard
+            image={SoyBeans}
+            name='Basmati Rice'
+            Address='Lorem-Ipsum Dolor-715245'
+            openingTime='08:00 AM'
+            closingTime='08:00 PM'
+            button='click'
+            />
+ <GroceryCard
+            image={Tomato}
+            name='Basmati Rice'
+            Address='Lorem-Ipsum Dolor-715245'
+            openingTime='08:00 AM'
+            closingTime='08:00 PM'
+            button='click'
+            />
+             <GroceryCard
+            image={Tomato}
+            name='Basmati Rice'
+            Address='Lorem-Ipsum Dolor-715245'
+            openingTime='08:00 AM'
+            closingTime='08:00 PM'
+            button='click'
+            />
+             <GroceryCard
+            image={Tomato}
+            name='Basmati Rice'
+            Address='Lorem-Ipsum Dolor-715245'
+            openingTime='08:00 AM'
+            closingTime='08:00 PM'
+            button='click'
+            />
+              <GroceryCard
+            image={RiceImage}
+            name='Basmati Rice'
+            Address='Lorem-Ipsum Dolor-715245'
+            openingTime='08:00 AM'
+            closingTime='08:00 PM'
+            button='click'
+            />
+
+<GroceryCard
+            image={SoyBeans}
+            name='Basmati Rice'
+            Address='Lorem-Ipsum Dolor-715245'
+            openingTime='08:00 AM'
+            closingTime='08:00 PM'
+            button='click'
+            />
+ <GroceryCard
+            image={Tomato}
+            name='Basmati Rice'
+            Address='Lorem-Ipsum Dolor-715245'
+            openingTime='08:00 AM'
+            closingTime='08:00 PM'
+            button='click'
+            />
+             <GroceryCard
+            image={Tomato}
+            name='Basmati Rice'
+            Address='Lorem-Ipsum Dolor-715245'
+            openingTime='08:00 AM'
+            closingTime='08:00 PM'
+            button='click'
+            />
+             <GroceryCard
+            image={Tomato}
+            name='Basmati Rice'
+            Address='Lorem-Ipsum Dolor-715245'
+            openingTime='08:00 AM'
+            closingTime='08:00 PM'
+            button='click'
+            />
+       
       </div>
+      <br/>
+      <h3 style={{justifyContent:"center",fontSize:"35px"}}>Clothes Category</h3>
+      <div className="category-container"> 
+          
+      <GroceryCard
+            image={Raymond}
+            name='Basmati Rice'
+            Address='Lorem-Ipsum Dolor-715245'
+            openingTime='08:00 AM'
+            closingTime='08:00 PM'
+            button='click'
+            />
+      <GroceryCard
+            image={Raymond}
+            name='Basmati Rice'
+            Address='Lorem-Ipsum Dolor-715245'
+            openingTime='08:00 AM'
+            closingTime='08:00 PM'
+            button='click'
+            />
+      <GroceryCard
+            image={Raymond}
+            name='Basmati Rice'
+            Address='Lorem-Ipsum Dolor-715245'
+            openingTime='08:00 AM'
+            closingTime='08:00 PM'
+            button='click'
+            />
+      <GroceryCard
+            image={Raymond}
+            name='Basmati Rice'
+            Address='Lorem-Ipsum Dolor-715245'
+            openingTime='08:00 AM'
+            closingTime='08:00 PM'
+            button='click'
+            />
+      <GroceryCard
+            image={Raymond}
+            name='Basmati Rice'
+            Address='Lorem-Ipsum Dolor-715245'
+            openingTime='08:00 AM'
+            closingTime='08:00 PM'
+            button='click'
+            />
+              <GroceryCard
+            image={Raymond}
+            name='Basmati Rice'
+            Address='Lorem-Ipsum Dolor-715245'
+            openingTime='08:00 AM'
+            closingTime='08:00 PM'
+            button='click'
+            />
+      <GroceryCard
+            image={Raymond}
+            name='Basmati Rice'
+            Address='Lorem-Ipsum Dolor-715245'
+            openingTime='08:00 AM'
+            closingTime='08:00 PM'
+            button='click'
+            />
+      <GroceryCard
+            image={Raymond}
+            name='Basmati Rice'
+            Address='Lorem-Ipsum Dolor-715245'
+            openingTime='08:00 AM'
+            closingTime='08:00 PM'
+            button='click'
+            />
+      <GroceryCard
+            image={Raymond}
+            name='Basmati Rice'
+            Address='Lorem-Ipsum Dolor-715245'
+            openingTime='08:00 AM'
+            closingTime='08:00 PM'
+            button='click'
+            />
+      <GroceryCard
+            image={Raymond}
+            name='Basmati Rice'
+            Address='Lorem-Ipsum Dolor-715245'
+            openingTime='08:00 AM'
+            closingTime='08:00 PM'
+            button='click'
+            />
+      
+      </div>
+      
+      <h3 style={{justifyContent:"center",fontSize:"35px"}}>Electronics</h3>
       <div className="category-container"> 
       
-        {groceriesData.map((grocery, index) => (
-          <React.Fragment key={grocery.id}>
-            {(index % 5 === 0) && <h3>{getCategoryName(grocery.id)}</h3>}
-            <GroceryCard
-              key={grocery.id}
-              image={grocery.image}
-              name={grocery.name}
-              Address={grocery.Address}
-              openingTime={grocery.openingTime}
-              closingTime={grocery.closingTime}
+        
+          
+          <GroceryCard
+          image={Raymond}
+          name='Basmati Rice'
+          Address='Lorem-Ipsum Dolor-715245'
+          openingTime='08:00 AM'
+          closingTime='08:00 PM'
+          button='click'
+          />
+          <GroceryCard
+            image={Raymond}
+            name='Basmati Rice'
+            Address='Lorem-Ipsum Dolor-715245'
+            openingTime='08:00 AM'
+            closingTime='08:00 PM'
+            button='click'
             />
-          </React.Fragment>
-        ))}
+            <GroceryCard
+            image={Raymond}
+            name='Basmati Rice'
+            Address='Lorem-Ipsum Dolor-715245'
+            openingTime='08:00 AM'
+            closingTime='08:00 PM'
+            button='click'
+            />
+            <GroceryCard
+            image={Raymond}
+            name='Basmati Rice'
+            Address='Lorem-Ipsum Dolor-715245'
+            openingTime='08:00 AM'
+            closingTime='08:00 PM'
+            button='click'
+            />
+            <GroceryCard
+            image={Raymond}
+            name='Basmati Rice'
+            Address='Lorem-Ipsum Dolor-715245'
+            openingTime='08:00 AM'
+            closingTime='08:00 PM'
+            button='click'
+            />
+            <GroceryCard
+          image={Raymond}
+          name='Basmati Rice'
+          Address='Lorem-Ipsum Dolor-715245'
+          openingTime='08:00 AM'
+          closingTime='08:00 PM'
+          button='click'
+          />
+          <GroceryCard
+            image={Raymond}
+            name='Basmati Rice'
+            Address='Lorem-Ipsum Dolor-715245'
+            openingTime='08:00 AM'
+            closingTime='08:00 PM'
+            button='click'
+            />
+            <GroceryCard
+            image={Raymond}
+            name='Basmati Rice'
+            Address='Lorem-Ipsum Dolor-715245'
+            openingTime='08:00 AM'
+            closingTime='08:00 PM'
+            button='click'
+            />
+            <GroceryCard
+            image={Raymond}
+            name='Basmati Rice'
+            Address='Lorem-Ipsum Dolor-715245'
+            openingTime='08:00 AM'
+            closingTime='08:00 PM'
+            button='click'
+            />
+            <GroceryCard
+            image={Raymond}
+            name='Basmati Rice'
+            Address='Lorem-Ipsum Dolor-715245'
+            openingTime='08:00 AM'
+            closingTime='08:00 PM'
+            button='click'
+            />
       </div>
+      <h3 style={{justifyContent:"center",fontSize:"35px"}}>Health And Wellness</h3>
       <div className="category-container"> 
       <h3 style={{justifyContent:"center"}}>Grocery Items</h3>
         {groceriesData.map((grocery, index) => (
