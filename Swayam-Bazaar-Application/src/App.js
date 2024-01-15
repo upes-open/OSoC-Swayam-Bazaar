@@ -12,13 +12,14 @@ import ContactUs from './components/ContactUs/Contact.js';
 import Dashboard from "./components/dashboard/dash";
 import Products from "./components/dashboard/Products";
 import Order from "./components/dashboard/Order";
+import Cart from "./components/cart/Functionality.js";
 
 function App() {
   return (
     <>
       <Router>
         <Routes>
-          <Route path='/' element={<LoginUser />}></Route>
+          <Route path='/' element={<Cart/>}></Route>
           <Route path='/loginuser' element={<LoginUser />}></Route>
           <Route path='/registeruser' element={<RegisterUser />}></Route>
           <Route path='/loginshopkeeper' element={<LoginShopkeeper />}></Route>
