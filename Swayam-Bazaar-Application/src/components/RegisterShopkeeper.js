@@ -5,23 +5,24 @@ import '../css/registerShopkeeper.css';
 const Registershopkeeper = () => {
   const [email, setEmail] = useState('')
   const [password, setPassword] = useState('')
+  const [confirmpassword, setConfirmPassword] = useState("")
+  const [mobile, setMobile] = useState("")
 
 
   const handleSubmit = async (e) => {
     e.preventDefault()
 
     try {
-      const response = await fetch('/api/Shopkeeper/signup', {
+      const response = await fetch('http://localhost:5000/api/Shopkeeper/signupShopkeeper', {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify({ email, password })
+        body: JSON.stringify({ email, password, confirmpassword, mobile })
       })
+      
 
       if (response.ok) {
         const json = await response.json()
-
-        // save the user to local storage
-        localStorage.setItem('user', JSON.stringify(json))
+        alert("User Registered. Head to Login")
 
         // Handle successful registration
         // You can redirect or perform any other action here
@@ -30,11 +31,11 @@ const Registershopkeeper = () => {
 
         // Handle registration error
         // You can display an error message or take appropriate action
-        console.log(json.error)
+        alert(json.error)
       }
     } catch (error) {
       // Handle network or fetch error
-      console.error(error)
+      console.error("error")
     }
   }
 

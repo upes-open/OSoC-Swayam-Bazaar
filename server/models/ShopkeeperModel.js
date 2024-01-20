@@ -10,11 +10,14 @@ const shopkeeperSchema = new mongoose.Schema({
   },
   password: {
     type: String,
+  },
+  mobile: {
+    type : Number
   }
 })
 
 // static signup method
-shopkeeperSchema.statics.signup = async function(email, password) {
+shopkeeperSchema.statics.signup = async function(email, password, mobile) {
 
   // validation
   if (!email || !password) {
@@ -36,7 +39,7 @@ shopkeeperSchema.statics.signup = async function(email, password) {
   const salt = await bcrypt.genSalt(10)
   const hash = await bcrypt.hash(password, salt)
 
-  const user = await this.create({ email, password: hash })
+  const user = await this.create({ email, password: hash, mobile })
   //THIS WHERE ITS BEEN CREATED
 
   return user
