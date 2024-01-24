@@ -2,7 +2,7 @@ import Header from './Header';
 import React, { useState } from 'react';
 import groceriesList from '../GroceryList&Data/groceriesData.jsx';
 import '../../css/cart.css';
-
+//import data from './data.js';
 function Functionality() {
     const [selectedCategory, setSelectedCategory] = useState('');
 
@@ -19,6 +19,34 @@ function Functionality() {
             </div>
         );
     };
+    // const { products } = data;
+    // const [cartItems, setCartItems] = useState([]);
+  
+    // const onAdd = (product) => {
+    //   const exist = cartItems.find((x) => x.id === product.id);
+    //   if (exist) {
+    //     setCartItems(
+    //       cartItems.map((x) =>
+    //         x.id === product.id ? { ...exist, qty: exist.qty + 1 } : x
+    //       )
+    //     );
+    //   } else {
+    //     setCartItems([...cartItems, { ...product, qty: 1 }]);
+    //   }
+    // };
+  
+    // const onRemove = (product) => {
+    //   const exist = cartItems.find((x) => x.id === product.id);
+    //   if (exist.qty === 1) {
+    //     setCartItems(cartItems.filter((x) => x.id !== product.id));
+    //   } else {
+    //     setCartItems(
+    //       cartItems.map((x) =>
+    //         x.id === product.id ? { ...exist, qty: exist.qty - 1 } : x
+    //       )
+    //     );
+    //   }
+    // };
 
 
     return (
