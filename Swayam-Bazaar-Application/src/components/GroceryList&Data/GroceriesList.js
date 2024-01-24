@@ -1,5 +1,6 @@
 import React from 'react';
 import '../../css/GroceriesList.css';
+import { Link } from 'react-router-dom';
 import groceriesData from './groceriesData';
 import RiceImage from"../images/Rice.jpg";
 import SoyBeans from "../images/Soybeans.jpg";
@@ -27,7 +28,10 @@ const GroceriesList = ({ theme }) => {
     <div className="groceries-list">
       <h2 className={theme === 'dark' ? 'white-text' : 'dark-text'}>Explore the shops and items</h2>
     <h3 style={{justifyContent:"center",fontSize:"35px"}}>Grocery Items</h3>
-      <button className="btn-showall">Show All</button>
+      <Link className="btn-showall" to="/allproducts">
+      <button >Show All</button>
+      </Link>
+     
       <div className="category-container"> 
      
        
@@ -118,7 +122,9 @@ const GroceriesList = ({ theme }) => {
       </div>
       <br/>
       <h3 style={{justifyContent:"center",fontSize:"35px"}}>Clothes Category</h3>
-      <button className="btn-showall">Show All</button>
+      <Link className="btn-showall" to="/allproducts">
+      <button>Show All</button>
+      </Link>
       <div className="category-container"> 
           
       <GroceryCard
@@ -205,7 +211,9 @@ const GroceriesList = ({ theme }) => {
       </div>
       
       <h3 style={{justifyContent:"center",fontSize:"35px"}}>Electronics</h3>
-      <button className="btn-showall">Show All</button>
+      <Link className="btn-showall" to="/allproducts">
+      <button >Show All</button>
+      </Link>
       <div className="category-container"> 
       
         
@@ -292,7 +300,9 @@ const GroceriesList = ({ theme }) => {
             />
       </div>
       <h3 style={{justifyContent:"center",fontSize:"35px"}}>Health And Wellness</h3>
-      <button className="btn-showall">Show All</button>
+      <Link  className="btn-showall" to="/allproducts">
+      <button >Show All</button>
+      </Link>
       <div className="category-container"> 
       
       <GroceryCard
