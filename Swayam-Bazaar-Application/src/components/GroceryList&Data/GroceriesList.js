@@ -35,7 +35,8 @@ const GroceryCard = ({ image, name, Address, openingTime, closingTime }) => {
       <p>{Address}</p>
       <p>Opening Time: {openingTime}</p>
       <p>Closing Time: {closingTime}</p>
-      <button className="btn">Open</button>
+      <button className="btn">Add to Cart</button>
+      <button className="btn">Buy Now</button>
     </div>
   );
 };
@@ -46,7 +47,8 @@ const GroceriesList = ({ theme }) => {
   return (
     <div className="groceries-list">
       <h2 className={theme === 'dark' ? 'white-text' : 'dark-text'}>Explore the shops and items</h2>
-      <h3 style={{justifyContent:"center",fontSize:"35px"}}>Grocery Items</h3>
+    <h3 style={{justifyContent:"center",fontSize:"35px"}}>Grocery Items</h3>
+      <button className="btn-showall">Show All</button>
       <div className="category-container"> 
      
        
@@ -137,6 +139,7 @@ const GroceriesList = ({ theme }) => {
       </div>
       <br/>
       <h3 style={{justifyContent:"center",fontSize:"35px"}}>Clothes Category</h3>
+      <button className="btn-showall">Show All</button>
       <div className="category-container"> 
           
       <GroceryCard
@@ -223,6 +226,7 @@ const GroceriesList = ({ theme }) => {
       </div>
       
       <h3 style={{justifyContent:"center",fontSize:"35px"}}>Electronics</h3>
+      <button className="btn-showall">Show All</button>
       <div className="category-container"> 
       
         
@@ -309,6 +313,7 @@ const GroceriesList = ({ theme }) => {
             />
       </div>
       <h3 style={{justifyContent:"center",fontSize:"35px"}}>Health And Wellness</h3>
+      <button className="btn-showall">Show All</button>
       <div className="category-container"> 
       
       <GroceryCard
