@@ -1,6 +1,8 @@
 const mongoose = require("mongoose");
 const Shopkeeper = require('../models/ShopkeeperModel')
 const jwt = require('jsonwebtoken')
+const cookie = require('cookie');
+
 
 
 const createToken = (_id) => {
@@ -13,11 +15,24 @@ const loginShopkeeper = async (req, res) => {
   try {
     const user = await Shopkeeper.login(email, password)
 
-
 // create a token
     const token = createToken(user._id)
+    
+    res.setHeader(
+        'Set-Cookie',
+        cookie.serialize(
+            'token',
+            token,
+            {
+                httpOnly: true,
+                maxAge: 60 * 60 * 24,
+                sameSite: 'Lax',  // or comment this line for default behavior
+                path: '/',
+            }
+        )
+    );
 
-    res.status(200).json({email, token})// See token being sent in response to frontend
+    res.status(200).json({Status : "Success"})
   } catch (error) {
     res.status(400).json({error: error.message})
   }
