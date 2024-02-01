@@ -72,9 +72,9 @@ const Navbar = (props) => {
                   Contact Us
                 </Link>
               </div>
-              <div className="mb-3">
+              <div className="nav-item" style={{marginRight:"30px"}}>
                 <Link className={`nav-link ${theme === 'dark' ? 'dark-mode' : ''}`} to="/feedback">
-                  Feedback
+                 Feedback
                 </Link>
               </div>
               <div className="switch -ms-12 pt-2 mb-4">
