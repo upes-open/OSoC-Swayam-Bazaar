@@ -63,11 +63,9 @@ const getUniqueCategories = () => {
 // const GroceriesList = ({ theme }) => {
   return (
     <div className="groceries-list">
-      <h2 className={theme === 'dark' ? 'white-text' : 'dark-text'}>Explore the shops and items</h2>
-    <h3 style={{justifyContent:"center",fontSize:"35px"}}>Grocery Items</h3>
-      <button className="btn-showall">Show All</button>
-      <div className="category-container"> 
-     
+      {/* <h2 className={theme === 'dark' ? 'white-text' : 'dark-text'}>Explore the shops and items</h2> */}
+      {/* <h3 style={{justifyContent:"center",fontSize:"35px"}}>Grocery Items</h3>
+      <div className="category-container">  */}
         {/* {groceriesData.map((grocery, index) => (
           <React.Fragment key={grocery.id}>
             {(index % 5 === 0) && <h3>{getCategoryName(grocery.id)}</h3>}
