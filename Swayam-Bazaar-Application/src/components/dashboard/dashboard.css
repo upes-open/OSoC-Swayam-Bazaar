@@ -14,7 +14,7 @@
   .title {
     font-size: 3rem;
     display: grid;
-    place-items: center;
+    place-items: left;
   }
   
   /* Sidebar */
@@ -107,6 +107,38 @@
     padding-left: 20px;
     border-bottom: #fff 0.5px solid;
   }
+.chart-container{
+  position: relative;
+  top: 50px;
+  padding: 10px;  
+}
+.SALES{
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+text-align: center;
+width: "50%";
+
+}
+.TotalSales{
+  position: relative;
+  top: 50px;
+  left :40px; 
+  padding: 0px;
+  margin: 0px;
+  justify-content: center;
   
-  
-  
+}
+h2{
+  position: relative;
+  /* right: 50%; */
+  top: 0px;
+  color: black
+
+}
+.SalesInEachSector{
+  position : relative;
+  left: 75%;
+  top: 50px;
+
+
+}
