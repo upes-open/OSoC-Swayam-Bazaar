@@ -13,7 +13,6 @@ import Cart from "./components/cart/Functionality.js";
 import Dashboard from "./components/dashboard/dash";
 import Products from "./components/dashboard/Products";
 import Order from "./components/dashboard/Order";
-
 function App() {
   return (
     <>
@@ -27,6 +26,7 @@ function App() {
           <Route path='/navbar' element={<Navbar />}></Route>
           <Route path='/feedback' element={<Feedback />}></Route>
           <Route path='/feeds' element={<Feed />}></Route>
+          <Route path='/allproducts' element={<Cart />}></Route>
           <Route path='/contactus' element={<ContactUs />}></Route>
           <Route path='/cart' element={<Cart />}></Route>
           <Route path='/' element={<Dashboard />} >

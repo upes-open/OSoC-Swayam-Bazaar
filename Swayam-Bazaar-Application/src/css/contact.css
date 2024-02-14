@@ -60,39 +60,39 @@
   }
   .contact-image {
     flex: 1;
-  background-image: url('https://i.postimg.cc/2yTTj0G0/contact.png'); /* Replace with your image path */
+  background-image: url('https://i.postimg.cc/2yTTj0G0/contact.png'); 
   background-size: cover;
   border-radius: 5px;
   }
  
-  @media screen and (min-width:576px) and (max-width: 768px) {
-    .contact-us-container {
-      padding: 15px;
-      height: 610px;
-    }
-  
-    #contact-heading {
-      font-size: 28px;
-    }
-  
-    .contactl {
-      font-size: 16px;
-    }
-  
-    .contacti {
-      font-size: 16px;
-      width: 500px;
-    }
-  
-    #contact-b {
-      font-size: 16px;
-      padding: 10px 20px;
-    }
-  
-    .contact-image {
-      flex: 1;
-      background-size: cover;
-      border-radius: 5px;
-    }
+
+
+@media screen and (max-width: 575px) {
+  .contact-image {
+    display: none;
   }
-  
+
+  .contact-us-container {
+    height: auto; /* Adjust the height or remove it to make it auto */
+  }
+
+  #contact-heading {
+    font-size: 24px; /* Adjust the font size as needed */
+  }
+
+  .contactl {
+    font-size: 14px; /* Adjust the font size as needed */
+  }
+
+  .contacti {
+    font-size: 14px; /* Adjust the font size as needed */
+    width: 100%; /* Adjust the width as needed */
+  }
+
+  #contact-b {
+    font-size: 14px; /* Adjust the font size as needed */
+    padding: 8px 16px; /* Adjust the padding as needed */
+  }
+}
+
+
