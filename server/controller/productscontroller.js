@@ -1,13 +1,35 @@
 const mongoose = require('mongoose');
 const ProductsModel = require('../models/Products.js');
 
-// const products = async (req, res) => {  
-//   const info = ProductsModel.create(req.body)
-//   console.log(info)
-//   .then((products) => res.json(products))
-//   .catch((err) => res.json(err));
-//   console.log(req.body);
-// };
+const getAllProducts = async (req, res) => {
+  try {
+    console.log("1")
+      const products = await ProductsModel.find();
+      res.json(products);
+  } catch (error) {
+    console.log("2")
+      res.status(500).json({ message: 'Error fetching products', error: error.message });
+  }
+};
+
+const GetProductsByCategory = async (req, res) => {
+  try {
+    // console.log(1)
+    const { category } = req.query;
+    // console.log(2)
+    // Check if a category is provided
+    if (!category) {
+      return res.status(400).json({ message: 'Category is required' });
+    }
+    // console.log(3)
+    const products = await ProductsModel.find({ category });
+    res.json(products);
+  } catch (error) {
+    // console.log("2");
+    res.status(500).json({ message: 'Error fetching products', error: error.message });
+  }
+};
+
 
 const products = async (req, res) => {
   try {
@@ -21,4 +43,4 @@ const products = async (req, res) => {
   }
 };
 
-module.exports = products;
+module.exports = { getAllProducts,products,GetProductsByCategory};

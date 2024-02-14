@@ -1,10 +1,27 @@
 import Header from './Header';
-import React, { useState } from 'react';
+import React, { useEffect, useState } from "react";
+import axios from "axios";
 import groceriesList from '../GroceryList&Data/groceriesData.jsx';
 import '../../css/cart.css';
 //import data from './data.js';
 function Functionality() {
-    const [selectedCategory, setSelectedCategory] = useState('');
+
+  const [selectedCategory, setSelectedCategory] = useState('');
+  const [groceriesData, setgroceriesData] = useState(null);
+
+  useEffect(() => {
+    const fetchData = async () => {
+      try {
+        const response = await axios.get(`http://localhost:5000/api/Products/getAllProducts`);
+        console.log(response.data);
+        setgroceriesData(response.data);
+      } catch (error) {
+        console.error("Error fetching data:", error.message);
+      }
+    };
+
+    fetchData();
+  },[]);
 
     const GroceryCard = ({ image, name, Address, openingTime, closingTime }) => {
         return (
@@ -19,6 +36,8 @@ function Functionality() {
             </div>
         );
     };
+    
+    // Assuming 'data' is defined somewhere and contains 'products'
     // const { products } = data;
     // const [cartItems, setCartItems] = useState([]);
   
@@ -55,7 +74,7 @@ function Functionality() {
             <div>
                 <select onChange={(e) => setSelectedCategory(e.target.value)}>
                     <option value="">Select category</option>
-                    <option value="groceries">Groceries</option>
+                    <option value="grocery">Groceries</option>
                     <option value="clothes">Clothes</option>
                     <option value="health">Health And Wellness</option>
                 </select>
@@ -63,16 +82,16 @@ function Functionality() {
                 <div className="grocery-container">
                 {selectedCategory ? (
                     <div className="grocery-container">
-                        {groceriesList
+                        {groceriesData
                             .filter(item => item.category === selectedCategory)
                             .map((item, index) => (
                                 <GroceryCard
-                                    key={index}
-                                    image={item.image}
+                                    key={item._id}
+                                    image={item.picture}
                                     name={item.name}
-                                    Address={item.Address}
-                                    openingTime={item.openingTime}
-                                    closingTime={item.closingTime}
+                                    Address={"Address"}
+                                    openingTime={"openingtime"}
+                                    closingTime={"closingtime"}
                                 />
                             ))}
                 </div>
@@ -82,7 +101,21 @@ function Functionality() {
             </div>
             </div>
         </div>
-    );
-}
 
-export default Functionality;
+
+
+    // <div className="App">
+    //   <Header countCartItems={cartItems.length} />
+    //   <div className="row">
+    //     {products ? (
+    //       <Main products={products} onAdd={onAdd} />
+    //     ) : (
+    //       <p>Loading...</p>
+    //     )}
+    //     <Basket cartItems={cartItems} onAdd={onAdd} onRemove={onRemove} />
+    //   </div>
+    // </div>
+  );
+  }
+  
+  export default Functionality;

@@ -53,10 +53,10 @@ function Copyright(props) {
 const defaultTheme = createTheme();
 
 export default function SignUp() {
-  const emailRef = useRef();
-  const passwordRef = useRef();
-  const passwordConfirmRef = useRef();
-  const mobileRef = useRef();
+  const emailRef = useRef(null);
+  const passwordRef = useRef(null);
+  const passwordConfirmRef = useRef(null);
+  const mobileRef = useRef(null);
   const accessRef = useRef();
 
   // const { signup } = useAuth();
@@ -66,9 +66,13 @@ export default function SignUp() {
   const [isCheckboxChecked, setIsCheckboxChecked] = useState(false);
   const [showError, setShowError] = useState(false);
   const navigate = useNavigate();
-  const [formData, setFormData] = useState({
-    accesskey: "",
-  });
+  // const [formData, setFormData] = useState({
+  //   accesskey: "",
+  // });
+  // const [email, setEmail] = useState('')
+  // const [password, setPassword] = useState('')
+  // const [confirmpassword, setConfirmPassword] = useState("")
+  // const [mobile, setMobile] = useState("")
 
   const handleCheckboxChange = (event) => {
     setIsCheckboxChecked(event.target.checked);
@@ -91,7 +95,7 @@ export default function SignUp() {
       return setError('Passwords do not match');
     }
 
-    const providedAccessKey = accessRef.current.value;
+    // const providedAccessKey = accessRef.current.value;
 
     try {
       if (!isCheckboxChecked) {
@@ -99,16 +103,38 @@ export default function SignUp() {
       }
 
       // Check if the access key is present in Firestore
-      const isAccessKeyValid = await checkAccessKeyInFirestore(providedAccessKey);
+      // const isAccessKeyValid = await checkAccessKeyInFirestore(providedAccessKey);
 
-      if (isAccessKeyValid) {
-        setError('');
-        setLoading(true);
-        // await signup(emailRef.current.value, passwordRef.current.value);
-        setSignupSuccess(true);
+      // if (isAccessKeyValid) {
+      //   setError('');
+      //   setLoading(true);
+      //   // await signup(emailRef.current.value, passwordRef.current.value);
+      //   setSignupSuccess(true);
+      // } else {
+      //   throw new Error('Invalid access key');
+      // }
+
+      const response = await fetch('http://localhost:5000/api/Shopkeeper/signupShopkeeper', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({ 'email' : emailRef.current.value , 'password' : passwordRef.current.value , 'confirmpassword' : passwordConfirmRef.current.value , 'mobile' : mobileRef.current.value })
+      })
+      
+
+      if (response.ok) {
+        const json = await response.json()
+        alert("User Registered. Head to Login")
+
+        // Handle successful registration
+        // You can redirect or perform any other action here
       } else {
-        throw new Error('Invalid access key');
+        const json = await response.json()
+
+        // Handle registration error
+        // You can display an error message or take appropriate action
+        alert(json.error)
       }
+
     } catch (error) {
       console.error("Error during signup:", error.message);
       setError(error.message);
@@ -244,7 +270,7 @@ export default function SignUp() {
                   autoFocus
                 />
               </Grid>
-              <Grid item xs={12} sm={6}>
+              {/* <Grid item xs={12} sm={6}>
                 <TextField
                   required
                   fullWidth
@@ -254,7 +280,7 @@ export default function SignUp() {
                   name="accesskey"
                   autoComplete="number"
                 />
-              </Grid>
+              </Grid> */}
               <Grid item xs={12}>
                 <FormControlLabel
                   control={<Checkbox value="allowExtraEmails" color="primary" onChange={handleCheckboxChange} />}

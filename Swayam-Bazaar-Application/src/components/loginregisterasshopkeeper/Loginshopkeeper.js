@@ -28,10 +28,27 @@ export default function LogIn() {
         try {
             setError('');
             setLoading(true);
-            // await login(emailRef.current.value, passwordRef.current.value);
-            setLoginSuccess(true);
-            // Navigate to the inventory page on successful login
-            navigate('/dashboard');
+            const response = await fetch("http://localhost:5000/api/Shopkeeper/loginshopkeeper", {
+              method: "POST",
+              headers: { "Content-Type": "application/json" },
+              body: JSON.stringify({ 'email' : emailRef.current.value , 'password' : passwordRef.current.value }),
+              credentials: 'include', // Include credentials (cookies) in the request
+            });
+      
+            if (response.ok) {
+              // Handle successful login
+              // You can redirect or perform any other action here
+              // console.log("Login successful!"); // Display a message in the console
+            //   alert("Login Successfull")
+              setLoginSuccess(true);
+              // Navigate to the inventory page on successful login
+              navigate('/dashboard');
+            } else {
+              // Handle login error
+              // You can display an error message or take appropriate action
+              // console.log("Problem")
+              alert("Email or Password incorrect")
+            }
         } catch {
             setError('Failed to sign in');
         }
