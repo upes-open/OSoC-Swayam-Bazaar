@@ -1,4 +1,5 @@
-import React, { useState } from 'react';
+import React, { useState,useEffect } from 'react';
+import { useNavigate } from 'react-router-dom'
 import Modal from 'react-modal';
 import ImageUpload from './ImageUpload'; // Import the ImageUpload component
 import "./style/Product_add.css"
@@ -8,6 +9,36 @@ import axios from "axios";
 const Products = () => {
   const [visible, setvisible] = useState(false);
   const [selectedImage, setSelectedImage] = useState(null);
+  const [user, setUser] = useState(null);
+
+  const navigate = useNavigate();
+
+  useEffect(() => {
+    const checkAuthStatus = async () => {
+      try {
+        // console.log("Hi")
+        // Make an API request to check if the user is logged in
+        const response = await fetch(`http://localhost:${port}/api/Shopkeeper/authenticateShopkeeper`, {
+          method: 'GET',
+          credentials: 'include',  // Include cookies with the request
+        });
+        const data = await response.json();
+  
+        if (response.ok) {
+          setUser(data.user);
+        }
+        else{
+          alert("Login as shopkeeper to access this page")
+          navigate("/")
+        }
+      } catch (error) {
+        alert('Error checking authentication status:', error);
+        navigate("/");
+      } 
+    };
+  
+    checkAuthStatus();
+  }, []);
 
 
   const handleImageSelect = (file) => {

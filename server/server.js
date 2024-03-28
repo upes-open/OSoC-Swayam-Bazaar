@@ -11,12 +11,15 @@ const Products=require("./routes/Products");
 const app = express();
 app.use(express.json());
 const cors = require('cors');
+const cookieParser = require('cookie-parser')
 
 const allowedOrigins = ['http://localhost:3000'];
 app.use(cors({
   origin: allowedOrigins,
   credentials: true,
 }));
+app.use(cookieParser())
+
 
 app.use((req, res, next) => {
   console.log(req.path, req.method)
