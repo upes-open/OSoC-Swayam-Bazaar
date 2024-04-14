@@ -18,10 +18,12 @@ function generateOrderID() {
 
     const neworder = async (req, res) => {
       try {
+        console.log(1)
         // req.body in form of {CustomerEmail : '', orderdetails : [{ProductName : '',ShopName : '', quantity : 0, price : 0}, more products]}
-        const CustomerEmail = req.body.name;
+        const CustomerEmail = req.body.CustomerEmail;
         const orderdetails = req.body.orderdetails;
         const OrderID = generateOrderID()
+        console.log(orderdetails)
       
         for (const product of orderdetails) {
             const orderData = {
@@ -32,16 +34,17 @@ function generateOrderID() {
               quantity: product.quantity,
               price: product.price
             };
+            console.log(orderData)
       
             // Create a new order for the current product
             const createdOrder = await OrderModel.create(orderData);
-            console.log('Created order:', createdOrder);
+            console.log(101);
           }
 
-      console.log(req.body);
-      res.status(201).json(createdProduct); // Send a 201 status for successful creation
+      res.status(201); // Send a 201 status for successful creation
+      console.log('yes')
     } catch (err) {
-      console.log(req)
+      console.log(err)
       // console.error(err);
       res.status(500).json({ error: 'Internal Server Error' }); // Handle other errors with a 500 status
     }

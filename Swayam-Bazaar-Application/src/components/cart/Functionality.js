@@ -1,4 +1,5 @@
-import React, { useState } from 'react';
+import React, { useEffect, useState } from "react";
+import axios from "axios";
 import Header from './Header';
 import './../../css/basket.css';
 import groceriesList from '../GroceryList&Data/groceriesData.jsx';
@@ -8,6 +9,33 @@ import '../../css/cart.css';
 function Functionality() {
     const [selectedCategory, setSelectedCategory] = useState('');
     const [cartItems, setCartItems] = useState([]); // State for cart items
+    const [productsData, setproductsData] = useState(null);
+
+    useEffect(() => {
+        const fetchData = async () => {
+          try {
+            const response = await axios.get(`http://localhost:5000/api/Products/getAllProducts`);
+            console.log(response.data);
+            setproductsData(response.data);
+          } catch (error) {
+            console.error("Error fetching data:", error.message);
+          }
+        }
+          fetchData();
+  },[]);
+
+  const handleSubmit = async (e) => {
+
+    const formData = {CustomerEmail : 'abc@gmail.com', orderdetails : [{ProductName : 'abc',ShopName : 'qwerty', quantity : 1, price : 50},{ProductName : 'xyz',ShopName : 'poiuytre', quantity : 5, price : 150}]}
+    // Make the API call
+    axios.post(`http://localhost:5000/api/Order/neworder`, formData,)
+      .then(result => {
+        console.log(result);
+        // formik.resetForm();
+      })
+      .catch(err => console.log(err));
+
+  };
 
     // Function to add a grocery product to the cart
     const addProductToCart = (product) => {
@@ -53,8 +81,8 @@ function Functionality() {
         return cartItems.reduce((total, item) => total + item.product.price * item.quantity, 0);
     };
 
-    const GroceryCard = ({ id, image, name, Address, openingTime, closingTime, price }) => {
-        const product = { id, image, name, Address, openingTime, closingTime, price };
+    const GroceryCard = ({ id, image, name, Address, ShopName, closingTime, price }) => {
+        const product = { id, image, name, Address, ShopName, closingTime, price };
 
         const onAddToCart = () => {
             addProductToCart(product);
@@ -65,7 +93,7 @@ function Functionality() {
                 <img src={image} alt={name} style={{ width: 200, height: 150, marginLeft: 10 }} />
                 <h3>{name}</h3>
                 <p>{Address}</p>
-                <p>Opening Time: {openingTime}</p>
+                <p>Shop Name: {ShopName}</p>
                 <p>Closing Time: {closingTime}</p>
                 <p>Price: {price}</p>
                 <button onClick={onAddToCart} className="btn">
@@ -90,17 +118,16 @@ function Functionality() {
                 <div className="grocery-container">
                     {selectedCategory ? (
                         <div className="grocery-container">
-                            {groceriesList
+                            {productsData
                                 .filter((item) => item.category === selectedCategory)
                                 .map((item, index) => (
                                     <GroceryCard
                                         key={index}
                                         id={item.id}
-                                        image={item.image}
+                                        image={item.picture}
                                         name={item.name}
                                         Address={item.Address}
-                                        openingTime={item.openingTime}
-                                        closingTime={item.closingTime}
+                                        ShopName={item.ShopName}
                                         price={item.price}
                                     />
                                 ))}
@@ -126,6 +153,7 @@ function Functionality() {
                     ))}
                     <p>Total Amount: Rs.{calculateTotalAmount()}</p>
                     <button id="payment">Proceed to payment</button>
+                    <button id="buy" onClick={handleSubmit}>Try Buy</button>
                 </div>
             </div>
         </div>
