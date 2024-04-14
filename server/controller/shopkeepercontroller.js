@@ -40,10 +40,10 @@ const loginShopkeeper = async (req, res) => {
 
 // signup a shopkeeper
 const signupShopkeeper = async (req, res) => {
-  const {email, password, confirmpassword, mobile} = req.body
+  const {email, password, confirmpassword, mobile, ShopName} = req.body
 
   try {
-    const user = await Shopkeeper.signup(email, password,mobile)
+    const user = await Shopkeeper.signup(email, password,mobile, ShopName)
 
     //create a token
     const token = createToken(user._id)

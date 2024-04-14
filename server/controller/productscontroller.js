@@ -8,6 +8,7 @@ const getAllProducts = async (req, res) => {
     const connection = createUserDatabaseConnection(shop);
     const ProductsModel = createProductsModelForUser(shop, connection);
       const products = await ProductsModel.find();
+      console.log(products)
       res.json(products);
   } catch (error) {
     console.log("2")
@@ -52,6 +53,7 @@ const products = async (req, res) => {
 };
 
 const insertProductForUser = async (email, productData) => {
+  try {
   console.log(11)
   var username = extractUsername(email);
   const connection = createUserDatabaseConnection(username);
@@ -61,7 +63,9 @@ const insertProductForUser = async (email, productData) => {
   const createdProduct = await ProductsModel.create(productData);
   console.log(createdProduct)
   return createdProduct;
-};
+} catch (err){
+  console.log(err)
+}}
 
 function extractUsername(email) {
   // Find the position of the "@" symbol

@@ -57,7 +57,7 @@ export default function SignUp() {
   const passwordRef = useRef(null);
   const passwordConfirmRef = useRef(null);
   const mobileRef = useRef(null);
-  const accessRef = useRef();
+  const ShopNameRef = useRef(null);
 
   // const { signup } = useAuth();
   const [error, setError] = useState('');
@@ -117,7 +117,7 @@ export default function SignUp() {
       const response = await fetch('http://localhost:5000/api/Shopkeeper/signupShopkeeper', {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify({ 'email' : emailRef.current.value , 'password' : passwordRef.current.value , 'confirmpassword' : passwordConfirmRef.current.value , 'mobile' : mobileRef.current.value })
+        body: JSON.stringify({ 'email' : emailRef.current.value , 'password' : passwordRef.current.value , 'confirmpassword' : passwordConfirmRef.current.value , 'mobile' : mobileRef.current.value, 'ShopName' : ShopNameRef.current.value })
       })
       
 
@@ -270,17 +270,16 @@ export default function SignUp() {
                   autoFocus
                 />
               </Grid>
-              {/* <Grid item xs={12} sm={6}>
+              <Grid item xs={12} sm={6}>
                 <TextField
                   required
                   fullWidth
-                  id="AccesKey"
-                  label="Access Key"
-                  inputRef={accessRef}
-                  name="accesskey"
-                  autoComplete="number"
+                  id="Shop Name"
+                  label="Shop Name"
+                  inputRef={ShopNameRef}
+                  name="shopname"
                 />
-              </Grid> */}
+              </Grid>
               <Grid item xs={12}>
                 <FormControlLabel
                   control={<Checkbox value="allowExtraEmails" color="primary" onChange={handleCheckboxChange} />}
