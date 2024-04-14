@@ -60,7 +60,7 @@ const Products = () => {
 
     const uploadImage = await imagebase64(selectedImage);
 
-    const formData = {"name" : formik.values.name,"category" : formik.values.category,"price" : formik.values.price,"picture" : uploadImage, "email":user.email}
+    const formData = {"name" : formik.values.name,"category" : formik.values.category,"price" : formik.values.price,"picture" : uploadImage, "ShopName":user.ShopName}
 
     // Make the API call
     axios.post(`http://localhost:${port}/api/Products/products`, formData,)
