@@ -7,8 +7,10 @@
   .main-container {
     display: flex;
   }
+
   main {
     padding: 10px;
+    width:100%;
   }
   
   .title {
@@ -139,6 +141,12 @@ h2{
   position : relative;
   left: 75%;
   top: 50px;
+}
 
 
+@media screen and (max-width:780px){
+  .BarChart{
+      width:200px;
+      height:500px;
+  }
 }
