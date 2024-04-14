@@ -7,8 +7,10 @@ const data = [
   { name: 'Item C', valueA: 300, valueB: 200 },
   { name: 'Item D', valueA: 200, valueB: 100 },
 ];
+
 const COLORS = ['#0088FE', '#00C49F', '#FFBB28', '#FF8042'];
 const RADIAN = Math.PI / 180;
+
 const renderCustomizedLabel = ({ cx, cy, midAngle, innerRadius, outerRadius, percent, index }) => {
   const radius = innerRadius + (outerRadius - innerRadius) * 1.5;
   const x = cx + radius * Math.cos(-midAngle * RADIAN);
@@ -19,9 +21,28 @@ const renderCustomizedLabel = ({ cx, cy, midAngle, innerRadius, outerRadius, per
     </text>
   );
 };
-export default class Example extends PureComponent {
-  static demoUrl = 'https://codesandbox.io/s/pie-chart-with-padding-angle-7ux0o';
 
+// Sample data for monthly sales
+const monthlySalesData = [
+  { month: 'Jan', sales: 15000 },
+  { month: 'Feb', sales: 35000 },
+  { month: 'Mar', sales: 30000 },
+  { month: 'Apr', sales: 5000 },
+  { month: 'May', sales: 50000 },
+  { month: 'Jun', sales: 55000 },
+];
+
+// Sample data for new customers by year
+const newCustomersData = [
+  { month: 'Jan', '2022': 45, '2023': 120 },
+  { month: 'Feb', '2022': 110, '2023': 130 },
+  { month: 'Mar', '2022': 50, '2023': 140 },
+  { month: 'Apr', '2022': 130, '2023': 70 },
+  { month: 'May', '2022': 100, '2023': 160 },
+  { month: 'Jun', '2022': 150, '2023': 150 },
+];
+
+export default class Example extends PureComponent {
   render() {
     return (
       <div className='SALES'>

@@ -35,8 +35,11 @@ const menuItemAnimation = {
   }),
 };
 
+
+
 const SidebarMenu = ({ route, showAnimation, isOpen, setIsOpen }) => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
+
   const toggleMenu = () => {
     setIsMenuOpen(!isMenuOpen);
     setIsOpen(true);
@@ -47,6 +50,7 @@ const SidebarMenu = ({ route, showAnimation, isOpen, setIsOpen }) => {
       setIsMenuOpen(false);
     }
   }, [isOpen]);
+
   return (
     <>
       <div className="menu" onClick={toggleMenu}>
@@ -79,7 +83,7 @@ const SidebarMenu = ({ route, showAnimation, isOpen, setIsOpen }) => {
             <FaAngleDown />
           </motion.div>
         )}
-      </div>{" "}
+      </div>
       <AnimatePresence>
         {isMenuOpen && (
           <motion.div
@@ -88,6 +92,7 @@ const SidebarMenu = ({ route, showAnimation, isOpen, setIsOpen }) => {
             animate="show"
             exit="hidden"
             className="menu_container"
+            style={{ maxHeight: isOpen ? "auto" : "0" }} // Adjusted height
           >
             {route.subRoutes.map((subRoute, i) => (
               <motion.div variants={menuItemAnimation} key={i} custom={i}>
@@ -98,7 +103,7 @@ const SidebarMenu = ({ route, showAnimation, isOpen, setIsOpen }) => {
               </motion.div>
             ))}
           </motion.div>
-        )}{" "}
+        )}
       </AnimatePresence>
     </>
   );
