@@ -1,5 +1,5 @@
 import React, { PureComponent } from 'react';
-import { PieChart, Pie, Cell, LineChart, Line, CartesianGrid, XAxis, YAxis, Tooltip, Legend, BarChart, Bar } from 'recharts';
+import { PieChart, Pie, Rectangle, Cell, ResponsiveContainer, BarChart, Bar, XAxis, YAxis, CartesianGrid, Tooltip, Legend } from 'recharts';
 
 const data = [
   { name: 'Item A', valueA: 500, valueB: 200 },
@@ -47,83 +47,52 @@ export default class Example extends PureComponent {
     return (
       <div className='SALES'>
         <div className='TotalSales'>
-          <PieChart
-            width={500} height={300} onMouseEnter={this.onPieEnter}
-          >
-            <Pie
-              data={data}
-              cx="50%"
-              cy="50%"
-              labelLine={false}
-              label={renderCustomizedLabel}
-              innerRadius={60}
-              outerRadius={80}
-              fill="#8884d8"
-              paddingAngle={5}
-              dataKey="valueA"
-            >
-              {data.map((entry, index) => (
-                <Cell key={`cell-${index}`} fill={COLORS[index % COLORS.length]} />
-              ))}
-            </Pie>
-            <Tooltip />
-          </PieChart>
+          <ResponsiveContainer width="100%" height={300}>
+            <PieChart>
+              <Pie
+                data={data}
+                cx="50%"
+                cy="50%"
+                labelLine={false}
+                label={renderCustomizedLabel}
+                innerRadius={60}
+                outerRadius={80}
+                fill="#8884d8"
+                paddingAngle={5}
+                dataKey="valueA"
+              >
+                {data.map((entry, index) => (
+                  <Cell key={`cell-${index}`} fill={COLORS[index % COLORS.length]} />
+                ))}
+              </Pie>
+              <Tooltip />
+            </PieChart>
+          </ResponsiveContainer>
           <h2>Total Sales</h2>
         </div>
-        <div className='SalesInEachSector' style={{ marginTop: '40px', marginLeft: '80px' }}>
-          <BarChart
-            width={500}
-            height={300}
-            data={data}
-            margin={{ top: 5, right: 30, left: 20, bottom: 5 }}
-          >
-            <CartesianGrid strokeDasharray="3 3" />
-            <XAxis dataKey="name" />
-            <YAxis />
-            <Tooltip />
-            <Legend />
-            <Bar dataKey="valueA" fill="#8884d8" />
-            <Bar dataKey="valueB" fill="#82ca9d" />
-          </BarChart>
-
+        <div className='SalesInEachSector'>
+          <ResponsiveContainer width="100%" height={300}>
+            <BarChart
+              data={data}
+              margin={{
+                top: 5,
+                right: 30,
+                left: 20,
+                bottom: 5,
+              }}
+            >
+              <CartesianGrid strokeDasharray="3 3" />
+              <XAxis dataKey="name" />
+              <YAxis />
+              <Tooltip />
+              <Legend />
+              <Bar dataKey="valueA" fill="#8884d8" />
+              <Bar dataKey="valueB" fill="#82ca9d" />
+            </BarChart>
+          </ResponsiveContainer>
           <h2>Sales Comparison</h2>
         </div>
-        
-        <div className='MonthlySales' style={{ marginTop: '80px' }}>
-          <h2>Monthly Sales</h2>
-          <LineChart
-            width={500}
-            height={300}
-            data={monthlySalesData}
-            margin={{ top: 5, right: 30, left: 50, bottom: 5 }} // Increased left margin
-          >
-            <CartesianGrid strokeDasharray="3 3" />
-            <XAxis dataKey="month" />
-            <YAxis />
-            <Tooltip />
-            <Legend />
-            <Line type="monotone" dataKey="sales" stroke="#8884d8" />
-          </LineChart>
-        </div>
-
-        <div className='NewCustomers' style={{ marginTop: '80px', marginLeft: '50px' }}>
-          <h2>New Customers</h2>
-          <LineChart
-            width={500}
-            height={300}
-            data={newCustomersData}
-            margin={{ top: 5, right: 30, left: 50, bottom: 5 }} // Increased left margin
-          >
-            <CartesianGrid strokeDasharray="3 3" />
-            <XAxis dataKey="month" />
-            <YAxis />
-            <Tooltip />
-            <Legend />
-            <Line type="monotone" dataKey="2022" stroke="#8884d8" name="2022" />
-<Line type="monotone" dataKey="2023" stroke="#82ca9d" name="2023" />
-</LineChart>
-</div>
-</div>
-);
-}
+      </div>
+    );
+  }
 }

@@ -12,6 +12,7 @@ const groceriesData = [
         Address:'Lorem-Ipsum Dolor-715245',
         openingTime: '08:00 AM',
         closingTime: '08:00 PM',
+        price:100,
         button:'click'
     },
     {
@@ -21,6 +22,7 @@ const groceriesData = [
         Address:'Lorem-Ipsum Dolor-715245',
         openingTime: '07:00 AM',
         closingTime: '09:00 PM',
+        price:100,
         button:'click'
     },
     {
@@ -30,6 +32,7 @@ const groceriesData = [
         Address:'Lorem-Ipsum Dolor-715245',
         openingTime: '07:00 AM',
         closingTime: '09:00 PM',
+        price:100,
         button:'click'
     },
     {
@@ -39,6 +42,7 @@ const groceriesData = [
         Address:'Lorem-Ipsum Dolor-715245',
         openingTime: '07:00 AM',
         closingTime: '09:00 PM',
+        price:100,
         button:'click'
     },
     {
@@ -48,6 +52,7 @@ const groceriesData = [
         Address:'Lorem-Ipsum Dolor-715245',
         openingTime: '07:00 AM',
         closingTime: '09:00 PM',
+        price:100,
         button:'click'
     },
     {
@@ -57,6 +62,7 @@ const groceriesData = [
       Address:'Lorem-Ipsum Dolor-715245',
       openingTime: '08:00 AM',
       closingTime: '08:00 PM',
+      price:100,
       button:'click'
   },
   {
@@ -66,6 +72,7 @@ const groceriesData = [
       Address:'Lorem-Ipsum Dolor-715245',
       openingTime: '07:00 AM',
       closingTime: '09:00 PM',
+      price:100,
       button:'click'
   },
   {
@@ -75,6 +82,7 @@ const groceriesData = [
       Address:'Lorem-Ipsum Dolor-715245',
       openingTime: '07:00 AM',
       closingTime: '09:00 PM',
+      price:100,
       button:'click'
   },
   {
@@ -84,6 +92,7 @@ const groceriesData = [
       Address:'Lorem-Ipsum Dolor-715245',
       openingTime: '07:00 AM',
       closingTime: '09:00 PM',
+      price:100,
       button:'click'
   },
   {
@@ -93,6 +102,7 @@ const groceriesData = [
       Address:'Lorem-Ipsum Dolor-715245',
       openingTime: '07:00 AM',
       closingTime: '09:00 PM',
+      price:100,
       button:'click'
   },
     {
@@ -102,6 +112,7 @@ const groceriesData = [
         Address:'Lorem-Ipsum Dolor-715245',
         openingTime: '07:00 AM',
         closingTime: '09:00 PM',
+        price:100,
         button:'click'
     },
     {
@@ -111,6 +122,7 @@ const groceriesData = [
         Address:'Lorem-Ipsum Dolor-715245',
         openingTime: '07:00 AM',
         closingTime: '09:00 PM',
+        price:100,
         button:'click'
     },
     {
@@ -120,6 +132,7 @@ const groceriesData = [
         Address:'Lorem-Ipsum Dolor-715245',
         openingTime: '07:00 AM',
         closingTime: '09:00 PM',
+        price:100,
         button:'click'
     },
     {
@@ -129,6 +142,7 @@ const groceriesData = [
         Address:'Lorem-Ipsum Dolor-715245',
         openingTime: '07:00 AM',
         closingTime: '09:00 PM',
+        price:100,
         button:'click'
     },
     {
@@ -138,6 +152,7 @@ const groceriesData = [
         Address:'Lorem-Ipsum Dolor-715245',
         openingTime: '07:00 AM',
         closingTime: '09:00 PM',
+        price:100,
         button:'click'
     },
     {
@@ -147,6 +162,7 @@ const groceriesData = [
         Address:'Lorem-Ipsum Dolor-715245',
         openingTime: '07:00 AM',
         closingTime: '09:00 PM',
+        price:100,
         button:'click'
     },
     {
@@ -156,6 +172,7 @@ const groceriesData = [
         Address:'Lorem-Ipsum Dolor-715245',
         openingTime: '07:00 AM',
         closingTime: '09:00 PM',
+        price:100,
         button:'click'
     },
     {
@@ -165,6 +182,7 @@ const groceriesData = [
         Address:'Lorem-Ipsum Dolor-715245',
         openingTime: '07:00 AM',
         closingTime: '09:00 PM',
+        price:100,
         button:'click'
     },
     {
@@ -174,6 +192,7 @@ const groceriesData = [
         Address:'Lorem-Ipsum Dolor-715245',
         openingTime: '07:00 AM',
         closingTime: '09:00 PM',
+        price:100,
         button:'click'
     },
     {
@@ -183,6 +202,7 @@ const groceriesData = [
         Address:'Lorem-Ipsum Dolor-715245',
         openingTime: '07:00 AM',
         closingTime: '09:00 PM',
+        price:100,
         button:'click'
     },
     {
@@ -192,6 +212,7 @@ const groceriesData = [
         Address:'Lorem-Ipsum Dolor-715245',
         openingTime: '07:00 AM',
         closingTime: '09:00 PM',
+        price:100,
         button:'click'
     },
     {
@@ -201,6 +222,7 @@ const groceriesData = [
         Address:'Lorem-Ipsum Dolor-715245',
         openingTime: '07:00 AM',
         closingTime: '09:00 PM',
+        price:100,
         button:'click'
     },
     {
@@ -210,6 +232,7 @@ const groceriesData = [
         Address:'Lorem-Ipsum Dolor-715245',
         openingTime: '07:00 AM',
         closingTime: '09:00 PM',
+        price:100,
         button:'click'
     },
     {
@@ -219,6 +242,7 @@ const groceriesData = [
         Address:'Lorem-Ipsum Dolor-715245',
         openingTime: '07:00 AM',
         closingTime: '09:00 PM',
+        price:100,
         button:'click'
     },
     {
@@ -228,6 +252,7 @@ const groceriesData = [
         Address:'Lorem-Ipsum Dolor-715245',
         openingTime: '07:00 AM',
         closingTime: '09:00 PM',
+        price:100,
         button:'click'
     },
     {
@@ -237,6 +262,7 @@ const groceriesData = [
         Address:'Lorem-Ipsum Dolor-715245',
         openingTime: '07:00 AM',
         closingTime: '09:00 PM',
+        price:100,
         button:'click'
     },
     {
@@ -246,6 +272,7 @@ const groceriesData = [
         Address:'Lorem-Ipsum Dolor-715245',
         openingTime: '07:00 AM',
         closingTime: '09:00 PM',
+        price:100,
         button:'click'
     },
     {
@@ -255,6 +282,7 @@ const groceriesData = [
         Address:'Lorem-Ipsum Dolor-715245',
         openingTime: '07:00 AM',
         closingTime: '09:00 PM',
+        price:100,
         button:'click'
     },
     {
@@ -264,6 +292,7 @@ const groceriesData = [
         Address:'Lorem-Ipsum Dolor-715245',
         openingTime: '07:00 AM',
         closingTime: '09:00 PM',
+        price:100,
         button:'click'
     },
     {
@@ -273,6 +302,7 @@ const groceriesData = [
         Address:'Lorem-Ipsum Dolor-715245',
         openingTime: '07:00 AM',
         closingTime: '09:00 PM',
+        price:100,
         button:'click'
     },
     {
@@ -282,6 +312,7 @@ const groceriesData = [
         Address:'Lorem-Ipsum Dolor-715245',
         openingTime: '07:00 AM',
         closingTime: '09:00 PM',
+        price:100,
         button:'click'
     },
     {
@@ -291,6 +322,7 @@ const groceriesData = [
         Address:'Lorem-Ipsum Dolor-715245',
         openingTime: '07:00 AM',
         closingTime: '09:00 PM',
+        price:100,
         button:'click'
     }
     , {
@@ -300,6 +332,7 @@ const groceriesData = [
         Address:'Lorem-Ipsum Dolor-715245',
         openingTime: '07:00 AM',
         closingTime: '09:00 PM',
+        price:100,
         button:'click'
     },
     {
@@ -309,6 +342,7 @@ const groceriesData = [
         Address:'Lorem-Ipsum Dolor-715245',
         openingTime: '07:00 AM',
         closingTime: '09:00 PM',
+        price:100,
         button:'click'
     },
     {
@@ -318,6 +352,7 @@ const groceriesData = [
         Address:'Lorem-Ipsum Dolor-715245',
         openingTime: '07:00 AM',
         closingTime: '09:00 PM',
+        price:100,
         button:'click'
     },
     {
@@ -327,6 +362,7 @@ const groceriesData = [
         Address:'Lorem-Ipsum Dolor-715245',
         openingTime: '07:00 AM',
         closingTime: '09:00 PM',
+        price:100,
         button:'click'
     },
     {
@@ -336,6 +372,7 @@ const groceriesData = [
         Address:'Lorem-Ipsum Dolor-715245',
         openingTime: '07:00 AM',
         closingTime: '09:00 PM',
+        price:100,
         button:'click'
     },
     {
@@ -345,6 +382,7 @@ const groceriesData = [
         Address:'Lorem-Ipsum Dolor-715245',
         openingTime: '07:00 AM',
         closingTime: '09:00 PM',
+        price:100,
         button:'click'
     },
     {
@@ -354,6 +392,7 @@ const groceriesData = [
         Address:'Lorem-Ipsum Dolor-715245',
         openingTime: '07:00 AM',
         closingTime: '09:00 PM',
+        price:100,
         button:'click'
     },
     {
@@ -363,6 +402,7 @@ const groceriesData = [
         Address:'Lorem-Ipsum Dolor-715245',
         openingTime: '07:00 AM',
         closingTime: '09:00 PM',
+        price:100,
         button:'click'
     }
     

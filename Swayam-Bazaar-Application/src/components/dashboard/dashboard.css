@@ -1,26 +1,27 @@
 * {
-  margin: 0;
-  padding: 0;
-  box-sizing: border-box;
-}
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+  }
+  
+  .main-container {
+    display: flex;
+  }
 
-.main-container {
-  display: flex;
-}
-
-main {
-  padding: 10px;
-}
-
-.title {
-  font-size: 3rem;
-  display: grid;
-  place-items: left;
-}
-
-/* Sidebar */
-.sidebar {
-  background: rgb(0, 7, 61);
+  main {
+    padding: 10px;
+    width:100%;
+  }
+  
+  .title {
+    font-size: 3rem;
+    display: grid;
+    place-items: left;
+  }
+  
+  /* Sidebar */
+  .sidebar {
+    background: rgb(0, 7, 61);
     color: white;
     height: 150vh;
     width: 250px; /* Set initial width for the sidebar */
@@ -152,44 +153,10 @@ h2 {
   top: 50px;
 }
 
-.MonthlySales {
-  position: relative;
-  margin-top: 40px;
-  margin-left: 50px;
-}
 
-.NewCustomers {
-  position: relative;
-  margin-top: 40px;
-  margin-left: 50px;
-}
-
-/* Media query for smaller screens */
-@media screen and (max-width: 1163px) {
-  .sidebar {
-      height: auto; 
-      width: 100%;/* Auto height for smaller screens */
-  }
-
-  
-  .SALES {
-      grid-template-columns: 1fr; /* Change to single column layout */
-      width: 100%; /* Set width to 100% for smaller screens */
-  }
-
-  .TotalSales {
-      left: 0; /* Reset left position for smaller screens */
-  }
-
-  .SalesInEachSector,
-  .MonthlySales,
-  .NewCustomers {
-      margin-left: 0; /* Remove left margin for smaller screens */
-  }
-}
-@media screen and (max-width: 375px) {
-  .sidebar {
-      height: auto; 
-      width: 100%;/* Auto height for smaller screens */
+@media screen and (max-width:780px){
+  .BarChart{
+      width:200px;
+      height:500px;
   }
 }
