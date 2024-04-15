@@ -50,4 +50,31 @@ function generateOrderID() {
     }
   };
   
-  module.exports = { neworder };
+
+
+  const getOrderOfCustomer = async (req, res) => {
+    try {
+        const CustomerEmail = req.body.CustomerEmail;
+        const orders = await OrderModel.find({ CustomerEmail: CustomerEmail });
+        console.log(orders)
+        res.json(orders);
+    } catch (error) {
+        res.status(500).json({ message: 'Error fetching products', error: error.message });
+    }
+  };
+
+
+  const getOrderByShopName = async (req, res) => {
+    try {
+        const ShopName = req.body.ShopName;
+        const orders = await OrderModel.find({ ShopName: ShopName });
+        console.log(orders)
+        res.json(orders);
+    } catch (error) {
+        res.status(500).json({ message: 'Error fetching products', error: error.message });
+    }
+  };
+
+
+
+  module.exports = { neworder , getOrderOfCustomer , getOrderByShopName };
