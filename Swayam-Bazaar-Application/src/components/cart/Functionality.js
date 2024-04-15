@@ -332,7 +332,8 @@ function Functionality() {
                 <div className="grocery-container">
                     {selectedCategory ? (
                         <div className="grocery-container">
-                            {productsData
+                            {productsData != null ? (
+                            productsData
                                 .filter((item) => item.category === selectedCategory)
                                 .map((item, index) => (
                                     <GroceryCard
@@ -343,7 +344,10 @@ function Functionality() {
                                         ShopName={item.ShopName}
                                         price={item.price}
                                     />
-                                ))}
+                                ))
+                                    ) : (
+                                        <p>Loading...</p>
+                                      )}
                         </div>
                     ) : (
                         <h1>Please select a category to see items</h1>
