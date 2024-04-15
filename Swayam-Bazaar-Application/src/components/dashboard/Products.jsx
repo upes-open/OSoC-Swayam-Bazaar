@@ -169,9 +169,9 @@ const Products = () => {
   className="form-input"
 >
   <option value="">Select</option>
-  <option value="Grocery List">Grocery List</option>
+  <option value="Grocery">Grocery</option>
   <option value="Electronics">Electronics</option>
-  <option value="Clothes Category">Clothes Category</option>
+  <option value="Clothes">Clothes</option>
   <option value="Health And Wellness">Health And Wellness</option>
 </select>
 
