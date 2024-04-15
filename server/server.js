@@ -8,15 +8,19 @@ const ShopListing = require("./routes/ShopListing");
 const user = require("./routes/User");
 const contactUsRouter=require("./routes/contactUsRouter");
 const Products=require("./routes/Products");
+const Order = require("./routes/orderRoute")
 const app = express();
 app.use(express.json());
 const cors = require('cors');
+const cookieParser = require('cookie-parser')
 
 const allowedOrigins = ['http://localhost:3000'];
 app.use(cors({
   origin: allowedOrigins,
   credentials: true,
 }));
+app.use(cookieParser())
+
 
 app.use((req, res, next) => {
   console.log(req.path, req.method)
@@ -29,6 +33,7 @@ app.use("/api/Shoplisting", ShopListing);
 app.use("/api/User", user);
 app.use("/api/Contact",contactUsRouter);
 app.use("/api/Products",Products);
+app.use("/api/Order",Order);
 
 // connect to db
 mongoose.connect(process.env.MONGO_URI , {

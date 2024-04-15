@@ -5,8 +5,8 @@ const cookie = require('cookie');
 
 
 
-const createToken = (_id) => {
-  return jwt.sign({_id}, process.env.SECRET, { expiresIn: '3d' })
+const createToken = (email) => {
+  return jwt.sign({email}, process.env.SECRET, { expiresIn: '3d' })
 }
 
 // login a shopkeeper
@@ -16,7 +16,7 @@ const loginShopkeeper = async (req, res) => {
     const user = await Shopkeeper.login(email, password)
 
 // create a token
-    const token = createToken(user._id)
+    const token = createToken(user.email)
     
     res.setHeader(
         'Set-Cookie',
@@ -40,10 +40,10 @@ const loginShopkeeper = async (req, res) => {
 
 // signup a shopkeeper
 const signupShopkeeper = async (req, res) => {
-  const {email, password, confirmpassword, mobile} = req.body
+  const {email, password, confirmpassword, mobile, ShopName} = req.body
 
   try {
-    const user = await Shopkeeper.signup(email, password,mobile)
+    const user = await Shopkeeper.signup(email, password,mobile, ShopName)
 
     //create a token
     const token = createToken(user._id)

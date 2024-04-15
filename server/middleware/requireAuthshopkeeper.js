@@ -1,26 +1,30 @@
 const jwt = require('jsonwebtoken')
 const Shopkeeper = require('../models/ShopkeeperModel')
 
-const requireAuthshopkeeper = async (req, res, next) => {
-  // verify user is authenticated
-  const { authorization } = req.headers
 
-  if (!authorization) {
-    return res.status(401).json({error: 'Authorization token required'})
-  }
-
-  const token = authorization.split(' ')[1]
-
+const authenticateShopkeeper = async (req, res, next) => {
   try {
-    const { _id } = jwt.verify(token, process.env.SECRET)
-
-    req.user = await Shopkeeper.findOne({ _id }).select('_id')
-    next()
-
+    const token = req.cookies.token; // Assuming you are storing the token in a cookie named 'token'
+    if (!token) {
+      // No token provided, user is not logged in
+      return res.status(401).json({ error: 'Unauthorized' });
+    }
+    // Verify the token
+    const decoded = jwt.verify(token, process.env.SECRET); // Replace 'your-secret-key' with your actual secret key
+    // Check if the user exists
+    const user = await Shopkeeper.findOne({ email: decoded.email });
+    if (!user) {
+      // User not found
+      return res.status(401).json({ error: 'Unauthorized wrong cred' });
+    }
+    // Attach the user object to the request for further use
+    req.user = user;
+    // Move to the next middleware or route handler
+    next();
   } catch (error) {
-    console.log(error)
-    res.status(401).json({error: 'Request is not authorized'})
+    // Token verification failed
+    return res.status(401).json({ error: 'Unauthorized' });
   }
-}
+};
 
-module.exports = requireAuthshopkeeper
+module.exports = authenticateShopkeeper;

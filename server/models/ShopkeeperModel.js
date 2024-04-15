@@ -13,11 +13,14 @@ const shopkeeperSchema = new mongoose.Schema({
   },
   mobile: {
     type : Number
+  },
+  ShopName: {
+    type: String,
   }
 })
 
 // static signup method
-shopkeeperSchema.statics.signup = async function(email, password, mobile) {
+shopkeeperSchema.statics.signup = async function(email, password, mobile, ShopName) {
 
   // validation
   if (!email || !password) {
@@ -25,9 +28,6 @@ shopkeeperSchema.statics.signup = async function(email, password, mobile) {
   }
   if (!validator.isEmail(email)) {
     throw Error('Email not valid')
-  }
-  if (!validator.isStrongPassword(password)) {
-    throw Error('Password not strong enough')
   }
 
   const exists = await this.findOne({ email })
@@ -39,7 +39,7 @@ shopkeeperSchema.statics.signup = async function(email, password, mobile) {
   const salt = await bcrypt.genSalt(10)
   const hash = await bcrypt.hash(password, salt)
 
-  const user = await this.create({ email, password: hash, mobile })
+  const user = await this.create({ email, password: hash, mobile, ShopName })
   //THIS WHERE ITS BEEN CREATED
 
   return user
