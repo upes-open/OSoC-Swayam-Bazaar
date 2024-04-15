@@ -15,6 +15,10 @@
     top: 20px;
 }
 
+h2{
+    text-align: center;
+}
+
 .cart-item {
     display: flex;
     flex-direction: column; /* Change to column layout for responsiveness */
@@ -48,6 +52,8 @@
 }
 
 .cart-item button {
+    display: inline-block;
+  white-space: nowrap;
     color: black;
     font-weight: bolder;
     padding: 5px 10px;
@@ -60,9 +66,14 @@
 }
 
 #payment {
-    width: 150px;
+    display: inline-block;
+  white-space: nowrap;
+    width:250px;
     background-color: #7fff00;
     font-weight: bolder;
+    font-size:18px;
+    padding:5px;
+    text-decoration: none;
     color: black;
 }
 
@@ -76,10 +87,77 @@
 }
 
 
+.notification {
+    background-color: rgba(255, 255, 255, 0.9); /* Adjust the alpha value (0.9 for 90% opacity) */
+    color:greenyellow;
+    font-weight: bolder;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    padding: 10px;
+    width: 200px;
+    position: fixed;
+    top: 20px;
+    left: 50%;
+    transform: translateX(-50%);
+    text-align: center;
+}
+
+.transparent-modal {
+    background: none; /* Remove background color */
+    border: none; /* Remove border */
+    box-shadow: none; /* Remove box shadow */
+}
+
+.transparent-overlay {
+    background-color: rgba(0, 0, 0, 0.5); /* Semi-transparent black overlay */
+}
+
+
+
+#open{
+    background-color: #7fff00;
+    font-weight: bolder;
+    color:black;
+    padding:8px;
+    width: 150px;
+    font-size:18px;
+    position: relative;
+    bottom:90px;
+    margin-left:800px;
+}
+
+
+#close{
+    background-color: #7fff00;
+    font-weight: bolder;
+    color:black;
+    padding:8px;
+    width: 150px;
+    font-size:18px;
+    margin-left:50px;
+}
+
+
 /* Responsive styling */
 @media screen and (max-width: 600px) {
+    .modal{
+        width:120%;
+        max-width: 90%; 
+    }
     .cart-container {
-        width: 90%; /* Adjust the width for small screens */
+        max-width:120%; /* Adjust maximum width for smaller screens */
+        padding: 10px; /* Increase padding for smaller screens */
+        top: 10px; /* Adjust sticky position for smaller screens */
+      }
+    
+      #payment {
+        width:250px; /* Make payment button full width for smaller screens */
+      }
+
+    #open{
+        margin:0;
+        position:relative;
+        top:2px;
     }
 }
 
