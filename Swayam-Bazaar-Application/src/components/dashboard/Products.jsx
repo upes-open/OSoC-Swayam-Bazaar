@@ -10,9 +10,23 @@ const Products = () => {
   const [visible, setvisible] = useState(false);
   const [selectedImage, setSelectedImage] = useState(null);
   const [user, setUser] = useState(null);
+  const [groceriesData, setgroceriesData] = useState(null);             
 
+  const GroceryCard = ({ image, name, Price, Category}) => {
+    return (
+      <div className="grocery-card">
+        <img src={image} alt={name} style={{ width: 200, height: 150, marginLeft: 10 }} />
+        <h3>{name}</h3>
+        <p>Price : {Price}</p>
+        <p>Category : {Category}</p>
+      </div>
+    );
+  };
+
+  
+  
   const navigate = useNavigate();
-
+  
   useEffect(() => {
     const checkAuthStatus = async () => {
       try {
@@ -26,6 +40,7 @@ const Products = () => {
   
         if (response.ok) {
           setUser(data.user);
+          console.log(user)
         }
         else{
           alert("Login as shopkeeper to access this page")
@@ -36,11 +51,26 @@ const Products = () => {
         navigate("/");
       } 
     };
-  
+    
     checkAuthStatus();
   }, []);
-
-
+  
+  
+  useEffect(() => {
+      const fetchData = async () => {
+        try {
+          console.log(1)
+          const ShopName = user.ShopName; // Replace 'YourShopName' with the desired shop name
+        const response = await axios.get(`http://localhost:5000/api/Products/getProductByShopName?ShopName=${ShopName}`);
+          console.log(response.data);
+          setgroceriesData(response.data);
+        } catch (error) {
+          console.error("Error fetching data:", error.message);
+        }
+      };
+  
+      fetchData();
+    }, [user]);
   const handleImageSelect = (file) => {
     setSelectedImage(file);
   };
@@ -96,6 +126,27 @@ const Products = () => {
   return (
     <div>
       <div className="title">Products</div>
+      <div className="category-container"> 
+     
+      {groceriesData != null ? (
+  groceriesData
+    .map((grocery) => (
+      <GroceryCard
+        key={grocery._id}
+        image={grocery.picture} // Assuming the image URL is stored in the 'picture' property
+        name={grocery.name}
+        Price={grocery.price}
+        Category={grocery.category}
+      />
+    ))
+) : (
+  <p>No product added</p>
+)}
+         
+      </div>
+
+
+
       <button className="button" onClick={openModal}>Open Modal</button>
       <Modal isOpen={visible} className="modal-content">
         <h1>Product Information</h1>

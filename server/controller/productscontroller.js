@@ -43,4 +43,28 @@ const products = async (req, res) => {
   }
 };
 
-module.exports = { getAllProducts,products,GetProductsByCategory};
+const GetProductsByShopName = async (req, res) => {
+  try {
+    console.log(req.query)
+    const { ShopName } = req.query;
+    console.log(ShopName)
+
+    // Validate ShopName (example: check if ShopName is a non-empty string)
+    if (!ShopName || typeof ShopName !== 'string' || ShopName.trim() === '') {
+      return res.status(400).json({ message: 'Invalid ShopName' });
+    }
+
+    const products = await ProductsModel.find({ ShopName });
+
+    if (!products) {
+      return res.status(404).json({ message: 'No products found for the specified ShopName' });
+    }
+
+    res.json(products);
+  } catch (error) {
+    console.error('Error fetching products:', error);
+    res.status(500).json({ message: 'Error fetching products', error: error.message });
+  }
+}
+
+module.exports = { getAllProducts,products,GetProductsByCategory,GetProductsByShopName};
