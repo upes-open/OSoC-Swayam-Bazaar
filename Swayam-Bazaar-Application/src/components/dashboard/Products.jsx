@@ -1,4 +1,4 @@
-import React, { useState,useEffect } from 'react';
+import React, { useState, useEffect } from 'react';
 import { useNavigate } from 'react-router-dom'
 import Modal from 'react-modal';
 import ImageUpload from './ImageUpload'; // Import the ImageUpload component
@@ -10,9 +10,9 @@ const Products = () => {
   const [visible, setvisible] = useState(false);
   const [selectedImage, setSelectedImage] = useState(null);
   const [user, setUser] = useState(null);
-  const [groceriesData, setgroceriesData] = useState(null);             
+  const [groceriesData, setgroceriesData] = useState(null);
 
-  const GroceryCard = ({ image, name, Price, Category}) => {
+  const GroceryCard = ({ image, name, Price, Category }) => {
     return (
       <div className="grocery-card">
         <img src={image} alt={name} style={{ width: 200, height: 150, marginLeft: 10 }} />
@@ -23,10 +23,10 @@ const Products = () => {
     );
   };
 
-  
-  
+
+
   const navigate = useNavigate();
-  
+
   useEffect(() => {
     const checkAuthStatus = async () => {
       try {
@@ -37,50 +37,50 @@ const Products = () => {
           credentials: 'include',  // Include cookies with the request
         });
         const data = await response.json();
-  
+
         if (response.ok) {
           setUser(data.user);
           console.log(user)
         }
-        else{
+        else {
           alert("Login as shopkeeper to access this page")
           navigate("/")
         }
       } catch (error) {
         alert('Error checking authentication status:', error);
         navigate("/");
-      } 
+      }
     };
-    
+
     checkAuthStatus();
   }, []);
-  
-  
+
+
   useEffect(() => {
-      const fetchData = async () => {
-        try {
-          console.log(1)
-          const ShopName = user.ShopName; // Replace 'YourShopName' with the desired shop name
+    const fetchData = async () => {
+      try {
+        console.log(1)
+        const ShopName = user.ShopName; // Replace 'YourShopName' with the desired shop name
         const response = await axios.get(`http://localhost:5000/api/Products/getProductByShopName?ShopName=${ShopName}`);
-          console.log(response.data);
-          setgroceriesData(response.data);
-        } catch (error) {
-          console.error("Error fetching data:", error.message);
-        }
-      };
-  
-      fetchData();
-    }, [user]);
+        console.log(response.data);
+        setgroceriesData(response.data);
+      } catch (error) {
+        console.error("Error fetching data:", error.message);
+      }
+    };
+
+    fetchData();
+  }, [user]);
   const handleImageSelect = (file) => {
     setSelectedImage(file);
   };
 
-  const imagebase64 = (file) =>{
+  const imagebase64 = (file) => {
     const reader = new FileReader()
     reader.readAsDataURL(file)
-    const data = new Promise((resolve,reject)=>{
-      reader.onload = ()=> resolve(reader.result)
-      reader.onerror = (err)=> reject(err)
+    const data = new Promise((resolve, reject) => {
+      reader.onload = () => resolve(reader.result)
+      reader.onerror = (err) => reject(err)
     })
     return data
   }
@@ -90,7 +90,7 @@ const Products = () => {
 
     const uploadImage = await imagebase64(selectedImage);
 
-    const formData = {"name" : formik.values.name,"category" : formik.values.category,"price" : formik.values.price,"picture" : uploadImage, "ShopName":user.ShopName}
+    const formData = { "name": formik.values.name, "category": formik.values.category, "price": formik.values.price, "picture": uploadImage, "ShopName": user.ShopName }
 
     // Make the API call
     axios.post(`http://localhost:${port}/api/Products/products`, formData,)
@@ -109,7 +109,7 @@ const Products = () => {
       category: "",
       price: "",
     },
-    onSubmit:handleSubmit
+    onSubmit: handleSubmit
   })
 
   const port = process.env.REACT_APP_API_PORT || 5000;
@@ -126,28 +126,28 @@ const Products = () => {
   return (
     <div>
       <div className="title">Products</div>
-      <div className="category-container"> 
-     
-      {groceriesData != null ? (
-  groceriesData
-    .map((grocery) => (
-      <GroceryCard
-        key={grocery._id}
-        image={grocery.picture} // Assuming the image URL is stored in the 'picture' property
-        name={grocery.name}
-        Price={grocery.price}
-        Category={grocery.category}
-      />
-    ))
-) : (
-  <p>No product added</p>
-)}
-         
+      <div className="category-container">
+
+        {groceriesData != null ? (
+          groceriesData
+            .map((grocery) => (
+              <GroceryCard
+                key={grocery._id}
+                image={grocery.picture} // Assuming the image URL is stored in the 'picture' property
+                name={grocery.name}
+                Price={grocery.price}
+                Category={grocery.category}
+              />
+            ))
+        ) : (
+          <p>No product added</p>
+        )}
+
       </div>
 
 
 
-      <button className="button" onClick={openModal}>Open Modal</button>
+      <button className="button" onClick={openModal}>Add Product</button>
       <Modal isOpen={visible} className="modal-content">
         <h1>Product Information</h1>
         <form onSubmit={formik.handleSubmit}>
@@ -161,19 +161,19 @@ const Products = () => {
             className="form-input"
           />
           <label className="form-label">Product Category:</label>
-<select
-  name="category"
-  {...formik.getFieldProps('category')}
-  // value={productData.category}
-  // onChange={handleInputChange}
-  className="form-input"
->
-  <option value="">Select</option>
-  <option value="Grocery">Grocery</option>
-  <option value="Electronics">Electronics</option>
-  <option value="Clothes">Clothes</option>
-  <option value="Health And Wellness">Health And Wellness</option>
-</select>
+          <select
+            name="category"
+            {...formik.getFieldProps('category')}
+            // value={productData.category}
+            // onChange={handleInputChange}
+            className="form-input"
+          >
+            <option value="">Select</option>
+            <option value="Grocery">Grocery</option>
+            <option value="Electronics">Electronics</option>
+            <option value="Clothes">Clothes</option>
+            <option value="Health And Wellness">Health And Wellness</option>
+          </select>
 
           <label className="form-label">Price:</label>
           <input
@@ -184,8 +184,8 @@ const Products = () => {
             // onChange={handleInputChange}
             className="form-input"
           />
-          <br/>
-          <br/>
+          <br />
+          <br />
           <ImageUpload onImageSelect={handleImageSelect} />
           <div className="button-container">
             <button type="submit" className="submit-button">Submit</button>

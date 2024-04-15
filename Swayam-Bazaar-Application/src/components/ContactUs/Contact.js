@@ -42,7 +42,7 @@ const ContactUsPage = () => {
 
   const port = process.env.REACT_APP_API_PORT || 5000;
   async function onSubmit(values) {
-    axios.post(`http://localhost:${port}/api/Contact/contact-us`, values)
+    axios.post(`http://localhost:${port}/api/Contact/contactus`, values)
       .then(result => {
         console.log(result);
         formik.resetForm();
@@ -78,7 +78,7 @@ const ContactUsPage = () => {
 
     <div className="navbar-nav w-full ms-11 flex justify-around" >
       <div className="nav-item">
-        <Link className={`nav-link ${theme === 'dark' ? 'dark-mode' : ''}`} to="/">
+        <Link className={`nav-link ${theme === 'dark' ? 'dark-mode' : ''}`} to="/navbar">
           Home
         </Link>
       
@@ -89,7 +89,7 @@ const ContactUsPage = () => {
         </Link>
       </div>
       <div className="nav-item">
-        <Link className={`nav-link ${theme === 'dark' ? 'dark-mode' : ''}`} to="/contact-us">
+        <Link className={`nav-link ${theme === 'dark' ? 'dark-mode' : ''}`} to="/contactus">
           Contact Us
         </Link>
       </div>
