@@ -66,8 +66,22 @@ function generateOrderID() {
 
   const getOrderByShopName = async (req, res) => {
     try {
-        const ShopName = req.body.ShopName;
+      console.log(1)
+      const { ShopName } = req.query;
+      console.log(ShopName)
+
+      // Validate ShopName (example: check if ShopName is a non-empty string)
+    if (!ShopName || typeof ShopName !== 'string' || ShopName.trim() === '') {
+      return res.status(400).json({ message: 'Invalid ShopName' });
+    }
+    
         const orders = await OrderModel.find({ ShopName: ShopName });
+        console.log(orders)
+
+        if (!orders) {
+          return res.status(404).json({ message: 'No orders found for the specified ShopName' });
+        }
+
         console.log(orders)
         res.json(orders);
     } catch (error) {

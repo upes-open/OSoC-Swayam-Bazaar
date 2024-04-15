@@ -32,6 +32,7 @@ export default function LogIn() {
             setLoading(true);
             await login(emailRef.current.value, passwordRef.current.value);
             setLoginSuccess(true);
+            localStorage.setItem('userEmail', emailRef.current.value);
             // Navigate to the inventory page on successful login
             navigate('/navbar');
         } catch {
