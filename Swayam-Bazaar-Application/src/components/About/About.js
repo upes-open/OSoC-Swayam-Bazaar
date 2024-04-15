@@ -5,10 +5,11 @@ import { useFormik } from 'formik';
 import axios from 'axios';
 import { Link } from 'react-router-dom';
 import Switch from 'react-switch';
-import bg from '../components/navbar/bg.jpg';
-import logo from '../components/images/Logo_.png';
+import bg from '../../components/navbar/bg.jpg';
+import logo from '../../components/images/Logo_.png';
 import { useEffect, useState } from 'react';
 import Footer from '../footer/footer';
+import './about.css';
 import { GoogleMap, useLoadScript, Marker } from "@react-google-maps/api"
 const About = () => {
   const { isLoaded } = useLoadScript({
@@ -50,7 +51,7 @@ const About = () => {
 
   async function onSubmit(values) {
     axios
-      .post(`http://localhost:${port}/api/Contact/contact-us`, values)
+      .post(`http://localhost:${port}/api/Contact/contactus`, values)
       .then((result) => {
         console.log(result);
         formik.resetForm();
@@ -88,7 +89,7 @@ const About = () => {
               <div className="nav-item">
                 <Link
                   className={`nav-link ${theme === 'dark' ? 'dark-mode' : ''}`}
-                  to="/"
+                  to="/navbar"
                 >
                   Home
                 </Link>
@@ -104,7 +105,7 @@ const About = () => {
               <div className="nav-item">
                 <Link
                   className={`nav-link ${theme === 'dark' ? 'dark-mode' : ''}`}
-                  to="/contact-us"
+                  to="/contactus"
                 >
                   Contact Us
                 </Link>
@@ -156,18 +157,20 @@ const About = () => {
           and another for shopkeepers.
         </p>
       </div>
-      <Map />
-      <Footer className="bg-white" />
+      {/* <Map /> */}
+      <div className='footer'>
+        <Footer />
+      </div>
     </>
   );
 };
 
 
-function Map() {
-  const center = useMemo(() => ({ lat: 44, lng: -80 }), []);
-  return <GoogleMap zoom={10} center={{ lat: 44, lng: -80 }} className="w-full h-full" >
-    <Marker position={center} />
-  </GoogleMap>;
-}
+// function Map() {
+//   const center = useMemo(() => ({ lat: 44, lng: -80 }), []);
+//   return <GoogleMap zoom={10} center={{ lat: 44, lng: -80 }} className="w-full h-full" >
+//     <Marker position={center} />
+//   </GoogleMap>;
+// }
 
 export default About;

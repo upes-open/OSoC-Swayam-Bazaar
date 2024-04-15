@@ -83,7 +83,7 @@ export default function Feedback() {
               <div className="nav-item">
                 <Link
                   className={`nav-link ${theme === "dark" ? "dark-mode" : ""}`}
-                  to="/"
+                  to="/navbar"
                 >
                   Home
                 </Link>
@@ -99,7 +99,7 @@ export default function Feedback() {
               <div className="nav-item">
                 <Link
                   className={`nav-link ${theme === "dark" ? "dark-mode" : ""}`}
-                  to="/contact-us"
+                  to="/contactus"
                 >
                   Contact Us
                 </Link>

@@ -57,7 +57,7 @@ const Navbar = (props) => {
 
             <div className="navbar-nav w-full ms-11 flex justify-around" >
               <div className="nav-item">
-                <Link className={`nav-link ${theme === 'dark' ? 'dark-mode' : ''}`} to="/">
+                <Link className={`nav-link ${theme === 'dark' ? 'dark-mode' : ''}`} to="/navbar">
                   Home
                 </Link>
               

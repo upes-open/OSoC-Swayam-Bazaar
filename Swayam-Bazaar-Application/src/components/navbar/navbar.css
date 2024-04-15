@@ -75,11 +75,12 @@
 }
 
 #chatbot img {
+  /* position: fixed; */
   height: 60px;
   width: 60px;
   border-radius: 50%;
   border: 1px solid black;
-  margin-left: 1140px;
+  margin-left: 300px;
   margin-top: 400px;
   cursor: pointer;
 }
