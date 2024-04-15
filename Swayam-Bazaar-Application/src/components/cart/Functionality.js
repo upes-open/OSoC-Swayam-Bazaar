@@ -178,6 +178,8 @@ function Functionality() {
     const [isCartOpen, setIsCartOpen] = useState(false);
     const [isNotificationVisible, setIsNotificationVisible] = useState(false);
     const [productsData, setproductsData] = useState(null);
+    const [email, setEmail] = useState('');
+
 
     useEffect(() => {
                 const fetchData = async () => {
@@ -197,6 +199,13 @@ function Functionality() {
 
             const orderdetails = []
 
+            const storedEmail = localStorage.getItem('userEmail');
+            console.log(storedEmail)
+            if (storedEmail) {
+            setEmail(storedEmail);
+            }
+
+
             for (const item of cartItems) {
                 const orderData = {
                   ShopName: item.product.ShopName,
@@ -208,7 +217,7 @@ function Functionality() {
               }
               console.log(orderdetails)
 
-                const formData = {CustomerEmail : 'abc@gmail.com', orderdetails : orderdetails}
+                const formData = {CustomerEmail : storedEmail, orderdetails : orderdetails}
                 // Make the API call
                 axios.post(`http://localhost:5000/api/Order/neworder`, formData,)
                   .then(result => {
