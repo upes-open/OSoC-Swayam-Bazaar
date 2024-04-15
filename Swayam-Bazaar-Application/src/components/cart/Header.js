@@ -5,11 +5,11 @@ export default function Header(props) {
     <header className="block row center">
       <div>
         <a href="#/">
-          <h1>Shop name here</h1>
+          <h1>Explore the shops and items</h1>
         </a>
       </div>
       <div>
-        <a href="#/cart">
+        {/* <a href="#/cart">
           Cart{' '}
           {props.countCartItems ? (
             <button className="badge">{props.countCartItems}</button>
@@ -17,7 +17,7 @@ export default function Header(props) {
             ''
           )}
         </a>{' '}
-        <a href="#/signin"> SignIn</a>
+        <a href="#/signin"> SignIn</a> */}
         <br/>
         <br/>
        
