@@ -142,7 +142,7 @@
 //                     {cartItems.map((cartItem, index) => (
 //                         <div key={index} className="cart-item">
 //                             <img src={cartItem.product.image} alt={cartItem.product.name} />
-                            
+
 //                              <p>{cartItem.product.name}</p>
 //                              <p>Price:Rs.{cartItem.product.price}</p>
 //                              <br/>
@@ -182,56 +182,56 @@ function Functionality() {
 
 
     useEffect(() => {
-                const fetchData = async () => {
-                  try {
-                    const response = await axios.get(`http://localhost:5000/api/Products/getAllProducts`);
-                    console.log(response.data);
-                    setproductsData(response.data);
-                  } catch (error) {
-                    console.error("Error fetching data:", error.message);
-                  }
-                }
-                  fetchData();
-          },[]);
-
-
-          const handleSubmit = async (e) => {
-
-            const orderdetails = []
-
-            const storedEmail = localStorage.getItem('userEmail');
-            console.log(storedEmail)
-            if (storedEmail) {
-            setEmail(storedEmail);
+        const fetchData = async () => {
+            try {
+                const response = await axios.get(`http://localhost:5000/api/Products/getAllProducts`);
+                console.log(response.data);
+                setproductsData(response.data);
+            } catch (error) {
+                console.error("Error fetching data:", error.message);
             }
+        }
+        fetchData();
+    }, []);
 
 
-            for (const item of cartItems) {
-                const orderData = {
-                  ShopName: item.product.ShopName,
-                  ProductName: item.product.name,
-                  quantity: item.quantity,
-                  price: item.product.price
-                };
-                orderdetails.push(orderData)
-              }
-              console.log(orderdetails)
+    const handleSubmit = async (e) => {
 
-                const formData = {CustomerEmail : storedEmail, orderdetails : orderdetails}
-                // Make the API call
-                axios.post(`http://localhost:5000/api/Order/neworder`, formData,)
-                  .then(result => {
-                    console.log(result);
-                    // formik.resetForm();
-                  })
-                  .catch(err => console.log(err));
+        const orderdetails = []
 
-                  window.location.href = "https://rzp.io/l/grMOFWeJX";
-              };
+        const storedEmail = localStorage.getItem('userEmail');
+        console.log(storedEmail)
+        if (storedEmail) {
+            setEmail(storedEmail);
+        }
+
+
+        for (const item of cartItems) {
+            const orderData = {
+                ShopName: item.product.ShopName,
+                ProductName: item.product.name,
+                quantity: item.quantity,
+                price: item.product.price
+            };
+            orderdetails.push(orderData)
+        }
+        console.log(orderdetails)
+
+        const formData = { CustomerEmail: storedEmail, orderdetails: orderdetails }
+        // Make the API call
+        axios.post(`http://localhost:5000/api/Order/neworder`, formData,)
+            .then(result => {
+                console.log(result);
+                // formik.resetForm();
+            })
+            .catch(err => console.log(err));
+
+        window.location.href = "https://rzp.io/l/grMOFWeJX";
+    };
 
     // Function to add a grocery product to the cart
     const addProductToCart = (product) => {
-        const existingItemIndex = cartItems.findIndex((item) => 
+        const existingItemIndex = cartItems.findIndex((item) =>
             item.product.id === product.id && item.product.name === product.name
         );
         if (existingItemIndex !== -1) {
@@ -333,27 +333,27 @@ function Functionality() {
                     {selectedCategory ? (
                         <div className="grocery-container">
                             {productsData != null ? (
-                            productsData
-                                .filter((item) => item.category === selectedCategory)
-                                .map((item, index) => (
-                                    <GroceryCard
-                                        key={index}
-                                        id={item.id}
-                                        image={item.picture}
-                                        name={item.name}
-                                        ShopName={item.ShopName}
-                                        price={item.price}
-                                    />
-                                ))
-                                    ) : (
-                                        <p>Loading...</p>
-                                      )}
+                                productsData
+                                    .filter((item) => item.category === selectedCategory)
+                                    .map((item, index) => (
+                                        <GroceryCard
+                                            key={index}
+                                            id={item.id}
+                                            image={item.picture}
+                                            name={item.name}
+                                            ShopName={item.ShopName}
+                                            price={item.price}
+                                        />
+                                    ))
+                            ) : (
+                                <p>Loading...</p>
+                            )}
                         </div>
                     ) : (
                         <h1>Please select a category to see items</h1>
                     )}
                 </div>
-               
+
                 <Modal
                     isOpen={isCartOpen}
                     onRequestClose={() => setIsCartOpen(false)}
@@ -366,13 +366,13 @@ function Functionality() {
                                 <img src={cartItem.product.image} alt={cartItem.product.name} />
                                 <p>{cartItem.product.name}</p>
                                 <p>Price: Rs.{cartItem.product.price}</p>
-                                <br/>
+                                <br />
                                 <div className='line'>
                                     <button onClick={() => decreaseQuantity(index)}>-</button>
                                     <p>{cartItem.quantity}</p>
                                     <button onClick={() => increaseQuantity(index)}>+</button>
                                 </div>
-                                <br/>
+                                <br />
                                 <button id="remove" onClick={() => deleteProductFromCart(index)}>Remove</button>
                             </div>
                         ))}
