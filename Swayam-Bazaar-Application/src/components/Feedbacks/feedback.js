@@ -135,7 +135,7 @@ export default function Feedback() {
       <Link to="/feeds">
   <button
     className="feed-btn"
-    style={{ width: '100%', height: 'auto' }}
+    style={{ width: '100%', marginBottom: '120vh' }}
   >
     Check All Feedbacks
   </button>
