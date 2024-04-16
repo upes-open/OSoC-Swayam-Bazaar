@@ -36,9 +36,9 @@
     "web-vitals": "^2.1.4"
   },
   "scripts": {
-    "dev": "nodemon server.js  --ignore client",
-    "start": "node server.js",
-    "build": "react-scripts build",
+    "dev": "npm run dev",
+    "build": "npm run build",
+    "start": "react-scripts start",
     "test": "react-scripts test",
     "eject": "react-scripts eject"
   },
