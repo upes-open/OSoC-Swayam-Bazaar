@@ -156,6 +156,15 @@ const About = () => {
           summary, the application will have two separate logins: one for users
           and another for shopkeepers.
         </p>
+        <h2 className="text-3xl font-semibold mb-4 mt-5">Our Mission</h2>
+        <p className="text-lg">
+          Our mission is to empower local communities by bridging the gap between users and local vendors, fostering a vibrant marketplace where users have easy access to a diverse range of products from trusted local shops. We strive to create a seamless shopping experience that prioritizes convenience, quality, and affordability, allowing users to support their local economy while enjoying the convenience of online shopping. Through our platform, we aim to revolutionize the way people shop for everyday essentials, promoting sustainability, community engagement, and economic growth.
+        </p>
+
+        <h2 className="text-3xl font-semibold mb-4 mt-5">Our Values</h2>
+        <p className="text-lg">
+          At our core, we are committed to integrity, transparency, and inclusivity. We believe in fostering strong relationships built on trust and respect, both within our team and with our users and vendors. We value innovation and continuous improvement, constantly seeking new ways to enhance the user experience and deliver value to our community. Sustainability is also a key value for us, and we are dedicated to minimizing our environmental impact and promoting ethical business practices. Above all, we are driven by a passion for making a positive impact in local communities and empowering individuals to thrive.
+        </p>
       </div>
       {/* <Map /> */}
       <div className='footer'>

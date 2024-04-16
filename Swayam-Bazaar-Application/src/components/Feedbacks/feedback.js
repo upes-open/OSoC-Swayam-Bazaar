@@ -2,11 +2,11 @@ import { useFormik } from "formik";
 import { Link } from "react-router-dom";
 import axios from "axios";
 import "../../css/feedback.css";
-import React, { useState, useEffect } from 'react'; 
+import React, { useState, useEffect } from 'react';
 import Switch from 'react-switch';
 import bg from '../../components/navbar/bg.jpg';
 import '../../components/navbar/navbar.css';
-import logo from "../../components/images/Logo_.png"
+import logo from "../../components/images/Logo_.png";
 import { width } from "@mui/system";
 // import FeedbackModel from "../../models/Schema";
 export default function Feedback() {
@@ -45,19 +45,20 @@ export default function Feedback() {
 
   const port = process.env.REACT_APP_API_PORT || 5000;
   async function onSubmit(values) {
-    // const directory = process.env.SITE_URL || "localhost:3001"
     axios
       .post(`http://localhost:${port}/api/Feedback/feedback`, values)
-      .then((result) => console.log(result))
+      .then((result) => {
+        console.log(result);
+        alert("Feedback submitted successfully!"); // Add alert here
+        formik.resetForm();
+      })
       .catch((err) => console.log(err));
-    // console.log(values)
   }
   return (
     <>
       <nav
-        className={`navbar navbar-expand-lg navbar-${
-          theme === "dark" ? "dark" : "light"
-        } flex justify-center`}
+        className={`navbar navbar-expand-lg navbar-${theme === "dark" ? "dark" : "light"
+          } flex justify-center`}
         style={{ backgroundColor: theme === "dark" ? "#333" : "white" }}
       >
         <div className="container-fluid">
@@ -132,14 +133,14 @@ export default function Feedback() {
         </div>
       </nav>
       <div class="container1">
-      <Link to="/feeds">
-  <button
-    className="feed-btn"
-    style={{ width: '100%', height: 'auto' }}
-  >
-    Check All Feedbacks
-  </button>
-</Link>
+        <Link to="/feeds">
+          <button
+            className="feed-btn"
+            style={{ width: '100%', marginBottom: '120vh' }}
+          >
+            Check All Feedbacks
+          </button>
+        </Link>
 
         <div class="contact-box flex justify-center w-full m-5">
           <div class="left"></div>

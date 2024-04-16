@@ -92,4 +92,33 @@
     color:#fff;
   }
 
+  .category-container {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+  }
+  
+  .grocery-card {
+    width: calc(25% - 20px); /* Adjust the width to fit 4 cards per row with margin */
+    margin-bottom: 20px;
+    text-align: center;
+  }
+  
+  @media screen and (max-width: 768px) {
+    .grocery-card {
+      width: calc(33.33% - 20px); /* Adjust for 3 cards per row */
+    }
+  }
+  
+  @media screen and (max-width: 576px) {
+    .grocery-card {
+      width: calc(50% - 20px); /* Adjust for 2 cards per row */
+    }
+  }
+  
+  @media screen and (max-width: 400px) {
+    .grocery-card {
+      width: 100%; /* Single card per row on smaller screens */
+    }
+  }
   
