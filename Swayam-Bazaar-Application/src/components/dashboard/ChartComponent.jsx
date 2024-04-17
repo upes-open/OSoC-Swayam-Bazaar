@@ -2,10 +2,10 @@ import React, { PureComponent } from 'react';
 import { PieChart, Pie, Rectangle, Cell, ResponsiveContainer, BarChart, Bar, XAxis, YAxis, CartesianGrid, Tooltip, Legend } from 'recharts';
 
 const data = [
-  { name: 'Item A', valueA: 500, valueB: 200 },
-  { name: 'Item B', valueA: 300, valueB: 200 },
-  { name: 'Item C', valueA: 300, valueB: 200 },
-  { name: 'Item D', valueA: 200, valueB: 100 },
+  { name: 'T-Shirt', valueA: 500},
+  { name: 'Shirts', valueA: 300},
+  { name: 'Trousers', valueA: 300},
+  { name: 'Apples', valueA: 200},
 ];
 
 const COLORS = ['#0088FE', '#00C49F', '#FFBB28', '#FF8042'];
