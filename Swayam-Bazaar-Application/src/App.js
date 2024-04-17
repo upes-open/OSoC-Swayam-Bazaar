@@ -20,11 +20,11 @@ function App() {
     <>
       <Router>
         <Routes>
-          <Route path='/dashboard' element={<Dashboard />}></Route>
+          {/* <Route path='/dashboard' element={<Dashboard />}></Route>
           <Route path='/Products' element={<Products />}></Route>
-            <Route path='/order' element={<Order />}></Route>
-          {/* <Route path='/' element={<LoginUser />}></Route>
-          <Route path='/loginuser' element={<LoginUser />}></Route> */}
+          <Route path='/order' element={<Order />}></Route> */}
+          <Route path='/' element={<LoginUser />}></Route>
+          <Route path='/loginuser' element={<LoginUser />}></Route>
           <Route path='/registeruser' element={<RegisterUser />}></Route>
           <Route path='/loginshopkeeper' element={<LoginShopkeeper />}></Route>
           <Route path='/registershopkeeper' element={<RegisterShopkeeper />}></Route>
@@ -35,11 +35,11 @@ function App() {
           <Route path='/about' element={<About />}></Route>
           {/* <Route path='/bucket' element={<Basket />}></Route> */}
           <Route path='/contactus' element={<ContactUs />}></Route>
-          {/* <Route path='/' element={<Dashboard />} >
+          <Route path='/' element={<Dashboard />} >
             <Route path='/dashboard' element={<Dashboard />}></Route>
             <Route path='/Products' element={<Products />}></Route>
             <Route path='/order' element={<Order />}></Route>
-          </Route> */}
+          </Route>
         </Routes>
       </Router>
     </>

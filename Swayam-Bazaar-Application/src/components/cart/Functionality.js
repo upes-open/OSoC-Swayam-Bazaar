@@ -285,6 +285,10 @@ function Functionality() {
             addProductToCart(product);
         };
 
+        const onBuyNow = () => {
+            window.location.href = "https://rzp.io/l/grMOFWeJX";
+        };
+
         return (
             <div className="grocery-card">
                 <img src={image} alt={name} style={{ width: 200, height: 150, marginLeft: 10 }} />
@@ -294,7 +298,7 @@ function Functionality() {
                 <button onClick={onAddToCart} className="btn">
                     Add to Cart
                 </button>
-                <button className="btn">Buy Now</button>
+                <button className="btn" onClick={onBuyNow}>Buy Now</button>
             </div>
         );
     };
